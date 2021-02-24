@@ -3,6 +3,25 @@
 #Variables
 $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
 
+#Database connection
+$dsn = "mysql:host=localhost;dbname=bloggdb";
+$user = "root";
+$password = "";
+$pdo = new PDO($dsn, $user, $password);
+
+//SQL
+$sql='SELECT username FROM users WHERE users.Role = "admin"';
+
+$stm = $pdo->prepare($sql);
+$stm->execute();
+
+//Stores fetched admin usernames in array $admins
+$admins = array();
+
+while($row = $stm->fetch()){
+    $admins[] = $row['username'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +41,12 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
     <input type="text" name="date" readonly value="<?=$date?>"> <!-- Date input might be changed to hidden -->
     <label for=author>Author</label>
     <select name="author">
-        <option value="admin1">admin1</option>
-        <option value="admin2">admin2</option>
-        <option value="admin3">admin3</option>  
+        <?php
+            //For each admin in $admins, create an option for the select author input
+            for ($i = 0; $i<count($admins); $i++){
+                echo "<option value='$admins[$i]'>$admins[$i]</option>";
+            }
+        ?>
     </select>
     <label for="category">Category</label>
     <input type="text" name="category" placeholder="Category of blog post"></input>
