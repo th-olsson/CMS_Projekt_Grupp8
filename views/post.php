@@ -20,8 +20,8 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
 <form action="handlePost.php" method="post">
     <label for="date">Current date</label>
     <input type="text" name="date" readonly value="<?=$date?>"> <!-- Date input might be changed to hidden -->
-    <label for=writer>Writer</label>
-    <select name="writer">
+    <label for=author>Author</label>
+    <select name="author">
         <option value="admin1">admin1</option>
         <option value="admin2">admin2</option>
         <option value="admin3">admin3</option>  
