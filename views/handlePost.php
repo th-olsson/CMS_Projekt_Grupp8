@@ -33,8 +33,10 @@
 
     if($stm->execute()){
         echo "your data has been successfully added to the database";
+        echo '<a href="post.php">go back</a>';
     } else {
         echo "something went wrong";
+        echo '<a href="post.php">go back</a>';
     }
 
 ?>
