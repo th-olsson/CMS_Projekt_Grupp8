@@ -1,9 +1,5 @@
 <?php
-$dsn = "mysql:host=localhost;dbname=bloggdb";
-$user = "root";
-$password = "root";
-$pdo = new PDO($dsn, $user, $password);
-
+include('../includes/database_connection.php');
 
 
 
@@ -20,24 +16,27 @@ if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['use
 
 
 
+$sql_u = $pdo->prepare("SELECT * FROM users WHERE Email=:email_IN OR Username=:username_IN ");
+$sql_u->bindParam(":email_IN", $email);
+$sql_u->bindParam(":username_IN", $username);
+$sql_u->execute();
+$count = $sql_u->rowCount();
 
-/*
-$sql_u = "SELECT count(*) FROM users WHERE Username='$username'";
-$result = $pdo->prepare($sql_u);
-*/
+if ($count > 0) {
 
-
-$sql = "INSERT INTO users (Firstname, Lastname, Username, Password, Email) VALUES(:fname_IN, :lname_IN, :uname_IN,:email_IN,:password_IN)";
-
-$stm = $pdo->prepare($sql);
-$stm->bindParam(':fname_IN', $firstname);
-$stm->bindParam(':lname_IN', $lastname);
-$stm->bindParam(':uname_IN', $username);
-$stm->bindParam(':email_IN', $email);
-$stm->bindParam(':password_IN', $userpassword);
-
-if ($stm->execute()) {
-    echo "success";
+    echo "User already exist";
 } else {
-    echo "Något gick fel!";
+
+    $sql = "INSERT IGNORE INTO users (Firstname, Lastname, Username, Email, Password) VALUES(:fname_IN, :lname_IN, :uname_IN,:email_IN,:password_IN)";
+
+    $stm = $pdo->prepare($sql);
+    $stm->bindParam(':fname_IN', $firstname);
+    $stm->bindParam(':lname_IN', $lastname);
+    $stm->bindParam(':uname_IN', $username);
+    $stm->bindParam(':email_IN', $email);
+    $stm->bindParam(':password_IN', $userpassword);
+
+    if ($stm->execute()) {
+        header("location:../index.php");
+    }
 }

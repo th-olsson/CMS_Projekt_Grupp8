@@ -24,13 +24,39 @@
         </ul>
 
     </nav>
-    <form method="POST">
+    <?php
+
+    session_start();
+    if ((isset($_SESSION['username']) or isset($_SESSION['email']) and isset($_SESSION['password']))) {
+
+        echo "<h1> Welcome" . " " . $_SESSION['username'] . "</h1>";
+        echo "<a href='logout.php'>Log out </a>";
+        die();
+    }
+
+
+    ?>
+
+
+
+
+
+
+    <form method="POST" action="handleLogin.php">
         <div class="container" id="login">
             <h1>Login to your account</h1>
+            <?php if (isset($_GET['error'])) { ?>
+
+                <p class="error"><?php echo $_GET['error']; ?> </p>
+
+            <?php } ?>
+
+
+
 
             <div class="formData">
-                <label for="username">Username</label>
-                <input type="text" name="username" class="username" id="username">
+                <label for="username">Username/Email</label>
+                <input type="text" name="username_email" placeholder="Username/Email" />
                 <small>Error message</small>
             </div>
             <div class="formData">
