@@ -3,24 +3,9 @@
 #Variables
 $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
 
-#Database connection
-$dsn = "mysql:host=localhost;dbname=bloggdb";
-$user = "root";
-$password = "";
-$pdo = new PDO($dsn, $user, $password);
-
-//SQL - get admin username
-$sql='SELECT username FROM users WHERE users.Role = "admin"';
-
-$stm = $pdo->prepare($sql);
-$stm->execute();
-
-//Stores fetched admin usernames in array $admins
-$admins = array();
-
-while($row = $stm->fetch()){
-    $admins[] = $row['username'];
-}
+//Get the logged in admins username and userId from $_SESSION
+$username = "Username"; //Placeholder name
+$userId = 2;            //Placeholder ID
 
 ?>
 
@@ -35,19 +20,15 @@ while($row = $stm->fetch()){
 <body>
 <h1>Create a post</h1>
 
-<!-- Form to send data of 'Date', 'Writer', 'Category', 'Description' 'Image URL', 'Title' and 'Content'. -->
+<?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Description' 'Image URL', 'Title' and 'Content'?>
 <form action="handlePost.php" method="post">
+    <?php//Readonly inputs may be changed to hidden?>
     <label for="date">Current date</label>
-    <input type="text" name="date" readonly value="<?=$date?>"> <!-- Date input might be changed to hidden -->
+    <input type="text" name="date" readonly value="<?=$date?>">
     <label for=author>Author</label>
-    <select name="author">
-        <?php
-            //For each admin in $admins, create an option for the select author input
-            for ($i = 0; $i<count($admins); $i++){
-                echo "<option value='$admins[$i]'>$admins[$i]</option>";
-            }
-        ?>
-    </select>
+    <input type="text" name="author" readonly value="<?=$username?>"></input>
+    <label for="userId">ID</label>
+    <input type="text" name="userId" readonly value="<?=$userId?>"></input>
     <label for="category">Category</label>
     <input type="text" name="category" placeholder="Category of blog post"></input>
     <label for="description">Description</label>
