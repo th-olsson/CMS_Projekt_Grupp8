@@ -9,7 +9,7 @@ $user = "root";
 $password = "";
 $pdo = new PDO($dsn, $user, $password);
 
-//SQL
+//SQL - get admin username
 $sql='SELECT username FROM users WHERE users.Role = "admin"';
 
 $stm = $pdo->prepare($sql);

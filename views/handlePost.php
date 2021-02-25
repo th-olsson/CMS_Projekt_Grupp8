@@ -1,7 +1,5 @@
 <?php
 
-    print_r($_POST); //Testing data 
-
     #Variables
     $date = $_POST['date'];
     $author = $_POST['author'];
@@ -11,15 +9,26 @@
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    $userId = 2; //Temporary placeholder. Needs to get real userId from $_POST or using $_POST['author'] to fetch from database
-
     #Database connection
     $dsn = "mysql:host=localhost;dbname=bloggdb";
     $user = "root";
     $password = "";
     $pdo = new PDO($dsn, $user, $password);
 
-    //SQL
+    //SQL - get authors userId
+    $sql = 'SELECT ID FROM users WHERE Username = :author_IN';
+
+    $stm = $pdo->prepare($sql);
+    $stm->bindParam(':author_IN', $author);
+
+    if($stm->execute()){
+        $userId = $stm->fetch()['ID'];
+    } else {
+        echo "stm execute failed";
+        die();
+    }
+
+    //SQL - insert data from $_POST to posts-table
     $sql = 'INSERT INTO posts (Date, UserID, Category, Description, Image, Title, Content) VALUES (:date_IN, :userId_IN, :category_IN, :description_IN, :image_IN, :title_IN, :content_IN)';
 
     $stm = $pdo->prepare($sql);
