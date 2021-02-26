@@ -1,9 +1,6 @@
 <?php
 include('../includes/database_connection.php');
 
-
-
-
 if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -11,6 +8,7 @@ if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['use
     $userpassword = $_POST['password'];
     $salt = "asdkmpäöl8234-23439*¨¨^?#=)€++98";
     $userpassword = md5($userpassword . $salt);
+
     $email = $_POST['email'];
 }
 
