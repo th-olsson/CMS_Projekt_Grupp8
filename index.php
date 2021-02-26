@@ -1,33 +1,9 @@
-<?php 
-
-#Database connection
+<?php #Database connection
 include("includes/database.php");
-
-//SQL - get selected data from all records in posts-table
-$sql = 'SELECT u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
-JOIN users as u WHERE p.UserID = u.ID';
-
-$stm = $db->prepare($sql);
-
-if($stm->execute()){
-
-    while($row = $stm->fetch()){
-
-        echo "<pre>";
-        print_r($row);
-        echo "</pre>";
-
-    }
-
-} else {
-    echo "error";
-    die();
-}
-
 ?>
 
-
 <?php include("includes/head.php") ?>
+
 	<title>Blogg | Homepage </title>
 </head>
 <body>
@@ -45,15 +21,46 @@ if($stm->execute()){
 			<hr>
 			<!-- more content still to come here ... -->
 
-            <!-- Example layout for blog posts -->
-            <!-- Attributes to insert variables into: <time datetime="$date">,<a href="index.php/category/$categoryUrl">  -->
-            <article class="post">
-                <h3 class="post__title">New vision for the company</h3>
-                <aside class="post__meta"><adress>By username</adress><time datetime="2021-02-18">2021-02-18</time><a href="">category</a></aside>
-                <p class="post__content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, maxime culpa nemo possimus fuga enim cumque est dicta. Fugiat molestias vel dolorum eaque nemo perferendis vero, esse officia impedit quas. Mollitia, facere dolor!</p>
-            </article>
-	    </div>
+        
+        <?php #Gets posts from database
 
+        //SQL - get selected data from all records in posts-table
+        $sql = 'SELECT u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
+        JOIN users as u WHERE p.UserID = u.ID';
+
+        $stm = $db->prepare($sql);
+
+        if($stm->execute()){
+
+         while($row = $stm->fetch()){
+
+        //Test view data
+        // echo "<pre>";
+        // print_r($row);
+        // echo "</pre>";
+
+        $title = $row['Title'];
+        $username = $row['Username'];
+        $category = $row['Category'];
+        $image = $row['Image'];
+        $content = $row['Content'];
+        $date = $row['Date'];
+
+        echo "<article class='post'>";
+        echo "<h3 class='post__title'>$title</h3>";
+        echo "<aside class='post__meta'><adress>By $username</adress><time datetime='$date'>$date</time><a href='$category.php'>$category</a></aside>";
+        echo "<img src='$image' alt='img' />";  //May need some variable for alt attribute, describing image
+        echo "<p class='post__content'>$content</p>
+        </article>";
+
+    }
+
+    } else {
+        echo "error";
+        die();
+    }
+
+?>
 
     </div>
 	<!-- // Page content -->
