@@ -4,7 +4,7 @@
 include("includes/database.php");
 
 //SQL - get selected data from all records in posts-table
-$sql = 'SELECT u.Username, p.Title, p.Category, p.Description, p.Image, p.Content, p.Date FROM posts as p
+$sql = 'SELECT u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
 JOIN users as u WHERE p.UserID = u.ID';
 
 $stm = $db->prepare($sql);
@@ -13,9 +13,9 @@ if($stm->execute()){
 
     while($row = $stm->fetch()){
 
-        // echo "<pre>";
-        // print_r($row);
-        // echo "</pre>";
+        echo "<pre>";
+        print_r($row);
+        echo "</pre>";
 
     }
 
