@@ -30,10 +30,7 @@
 
 
     <?php
-    $dsn = "mysql:host=localhost;dbname=bloggdb";
-    $user = "root";
-    $password = "root";
-    $pdo = new PDO($dsn, $user, $password);
+    include('../includes/database_connection.php');
 
 
 
@@ -44,23 +41,23 @@
             <h1>Register!</h1>
             <div class="formData">
                 <label for="firstname">Firstname</label>
-                <input type="text" name="firstname" class="firstname" id="firstname">
+                <input type="text" name="firstname" class="firstname" id="firstname" required>
                 <small>Error message</small>
             </div>
             <div class="formData">
                 <label for="lastname">Lastname</label>
-                <input type="text" name="lastname" class="lastname" id="lastname">
+                <input type="text" name="lastname" class="lastname" id="lastname" required>
                 <small>Error message</small>
             </div>
             <div class="formData">
                 <label for="username">Username</label>
-                <input type="text" name="username" class="username" id="username">
+                <input type="text" name="username" class="username" id="username" required>
                 <small>Error message</small>
             </div>
 
             <div class="formData">
                 <label for="email">Email</label>
-                <input type="email" name="email" class="email" id="email">
+                <input type="email" name="email" class="email" id="email" required>
                 <small>Error message</small>
             </div>
 
