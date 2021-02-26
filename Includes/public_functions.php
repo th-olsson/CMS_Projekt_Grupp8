@@ -10,15 +10,14 @@ class Posts {
     private $date;
     private $userId;
 
-    function __construct($id_IN, $title_IN, $description_IN, $image_IN, $category_IN, $content_IN, $date_IN, $userId_IN) {
+    function __construct($id_IN, $title_IN, $image_IN, $category_IN, $content_IN, $date_IN, $userId_IN) {
         $this->id = $id_IN;
-        $this->title = $title_IN
-        $this->description = $description_IN
-        $this->image = $image_IN
-        $this->category = $category_IN
-        $this->content = $content_IN
-        $this->date = $date_IN
-        $this->userId = $userId_IN
+        $this->title = $title_IN;
+        $this->image = $image_IN;
+        $this->category = $category_IN;
+        $this->content = $content_IN;
+        $this->date = $date_IN;
+        $this->userId = $userId_IN;
     }
 
     function getId()  {
@@ -26,9 +25,6 @@ class Posts {
     }
     function getTitle()  {
         return $this->title;
-    }
-    function getDescription()  {
-        return $this->description;
     }
     function getImage()  {
         return $this->image;
@@ -55,8 +51,8 @@ $posts = [];
 
 $stm = $db->query("SELECT ID, Title, Description, Image, Category, Content, Date, UserId FROM posts");
 
-echo"<pre>"
+echo"<pre>";
 while ($row = $stm->fetch()) {
-    echo $row["ID"], $row[""], $row[""], $row[""], $row[""], $row[""], $row[""], $row[""]
+    echo $row["ID"], $row[""], $row[""], $row[""], $row[""], $row[""], $row[""], $row[""];
 }
-echo "</pre>"
+echo "</pre>";
