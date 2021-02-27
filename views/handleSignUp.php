@@ -1,5 +1,5 @@
 <?php
-include('../includes/database_connection.php');
+include('../includes/database.php');
 
 if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
     $firstname = $_POST['firstname'];
@@ -14,7 +14,7 @@ if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['use
 
 
 
-$sql_u = $pdo->prepare("SELECT * FROM users WHERE Email=:email_IN OR Username=:username_IN ");
+$sql_u = $db->prepare("SELECT * FROM users WHERE Email=:email_IN OR Username=:username_IN ");
 $sql_u->bindParam(":email_IN", $email);
 $sql_u->bindParam(":username_IN", $username);
 $sql_u->execute();
@@ -27,7 +27,7 @@ if ($count > 0) {
 
     $sql = "INSERT IGNORE INTO users (Firstname, Lastname, Username, Email, Password) VALUES(:fname_IN, :lname_IN, :uname_IN,:email_IN,:password_IN)";
 
-    $stm = $pdo->prepare($sql);
+    $stm = $db->prepare($sql);
     $stm->bindParam(':fname_IN', $firstname);
     $stm->bindParam(':lname_IN', $lastname);
     $stm->bindParam(':uname_IN', $username);

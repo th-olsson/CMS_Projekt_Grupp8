@@ -1,6 +1,6 @@
 <?php
 
-include("../includes/database_connection.php");
+include("../includes/database.php");
 //function to remove spaces or unwanted character from input data
 function validateData($data)
 {
@@ -23,13 +23,13 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
         header("location:login.php?error=password is required");
         exit();
     } else {
-        $stm = $pdo->prepare("SELECT count(*) FROM users WHERE (Username = :username_IN  OR Email=:email_IN ) AND  Password =:password_IN");
+        $stm = $db->prepare("SELECT count(*) FROM users WHERE (Username = :username_IN  OR Email=:email_IN ) AND  Password =:password_IN");
         $stm->bindParam(":username_IN", $username);
         $stm->bindParam(":email_IN", $email);
         $salt = "asdkmpäöl8234-23439*¨¨^?#=)€++98";
         $pass = md5($userpassword . $salt);
         $stm->bindParam(":password_IN", $pass);
-        echo "i am the result:" . $stm->execute();
+        $stm->execute();
         $count = $stm->fetch();
 
         if ($count[0] > 0) {
@@ -37,7 +37,7 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $pass;
-            header("location:login.php");
+            header("location:../index.php");
         } else {
             header("location:login.php?error=Invalid Username or Password");
             exit();
