@@ -12,6 +12,7 @@ function validateData($data)
 
 
 if (isset($_POST['username_email']) && isset($_POST['password'])) {
+    print_r($_POST);
     $username = validateData($_POST['username_email']); //function call and variable assigning
     $email = validateData($_POST['username_email']);
     $userpassword = $_POST['password'];
@@ -37,6 +38,8 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $pass;
+            //$_SESSION['role'] =
+
             header("location:../index.php");
         } else {
             header("location:login.php?error=Invalid Username or Password");

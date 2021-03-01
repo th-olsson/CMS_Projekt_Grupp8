@@ -37,7 +37,7 @@
 
     ?>
     <form method="POST" action="handleSignUp.php">
-        <div class="container">
+        <div class="container-form">
             <h1>Register!</h1>
             <div class="formData">
                 <label for="firstname">Firstname</label>

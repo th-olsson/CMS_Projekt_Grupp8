@@ -13,7 +13,7 @@ $userId = $_POST['userId'];
 #Database connection
 $dsn = "mysql:host=localhost;dbname=bloggdb";
 $user = "root";
-$password = "";
+$password = "root";
 $pdo = new PDO($dsn, $user, $password);
 
 //SQL - insert data from $_POST to posts-table
@@ -34,4 +34,9 @@ if ($stm->execute()) {
 } else {
     echo "something went wrong";
     echo '<a href="post.php">go back</a>';
+}
+
+if (isset($_GET['ID'])) {
+
+    $id = $_GET['ID'];
 }
