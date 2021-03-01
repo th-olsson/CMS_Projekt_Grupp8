@@ -25,7 +25,7 @@
 
     </nav>
     <?php
-
+    /*
     session_start();
     if ((isset($_SESSION['username']) or isset($_SESSION['email']) and isset($_SESSION['password']))) {
 
@@ -34,7 +34,7 @@
         die();
     }
 
-
+*/
     ?>
 
 

@@ -1,7 +1,30 @@
+<?php
+session_start();
+if (!(isset($_SESSION['is_Login']))) {
+    header('location:login.php');
+    die();
+}
+if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
+    header('location:login.php');
+    die();
+}
+
+
+
+?>
+
+
+
+
 <?php #Database connection
+
 include("../includes/database.php");
 
 
+?>
+
+
+<?php
 if (isset($_REQUEST['delete'])) {
     $id = $_POST['ID'];
     $sql = "DELETE FROM posts WHERE ID=:id_IN";
@@ -37,7 +60,26 @@ if (isset($_REQUEST['delete'])) {
 
 
         <!-- navbar -->
-        <?php include("../includes/header.php") ?>
+        <header class="navbar">
+            <div class="logo_div">
+                <a href="index.php">
+                    <h1>Millhouse</h1>
+                </a>
+            </div>
+            <ul>
+                <li><a class="active" href="../index.php">Home</a></li>
+                <li><a href="#about">About Millhouse</a></li>
+                <li><a href="post.php">Create New Post</a></li>
+            </ul>
+        </header>
+
+        <div class="dropdown">
+            <span>Logout</span>
+            <div class="dropdown-content">
+                <a href="logout.php">logout</a>
+            </div>
+        </div>
+
         <!-- // navbar -->
 
         <?php if (isset($_GET['info'])) {
@@ -51,6 +93,9 @@ if (isset($_REQUEST['delete'])) {
                 echo "<div class='error'> The data has been deleted </div>";
             }
         } ?>
+
+
+
 
 
         <!-- Page content -->

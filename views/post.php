@@ -1,5 +1,15 @@
 <?php
 
+session_start();
+if (!(isset($_SESSION['is_Login']))) {
+    header('location:login.php');
+    die();
+}
+if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
+    header('location:login.php');
+    die();
+}
+
 #Variables
 $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
 

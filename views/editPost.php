@@ -60,7 +60,7 @@ $userId = 2;            //Placeholder ID
 
     $userData = $stm->fetch();
 
-    print_r($userData);
+    //print_r($userData);
 
     ?>
     <form action="editPost.php?action=update" method="post">

@@ -9,6 +9,6 @@
 		<li><a href="#about">About Millhouse</a></li>
 		<li><a href="views/login.php">Login</a></li>
 		<li><a href="views/register.php">Register</a></li>
-		<li><a href="views/viewPost.php">Posts</a></li>
+
 	</ul>
 </header>
