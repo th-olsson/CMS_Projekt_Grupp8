@@ -1,4 +1,9 @@
-<?php include("includes/head.php") ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+
 	<title>Blogg | Homepage </title>
 </head>
 <body>
@@ -18,3 +23,4 @@
 
 		<!-- footer -->
 		<?php include("includes/footer.php") ?>
+ 
