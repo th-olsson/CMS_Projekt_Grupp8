@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="css/style.css">
-	<meta charset="UTF-8">
+<?php include("includes/head.php")?>
 
 	<title>Blogg | Homepage </title>
 </head>
