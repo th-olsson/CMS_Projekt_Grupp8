@@ -25,7 +25,7 @@
 
     </nav>
     <?php
-
+    /*
     session_start();
     if ((isset($_SESSION['username']) or isset($_SESSION['email']) and isset($_SESSION['password']))) {
 
@@ -34,7 +34,7 @@
         die();
     }
 
-
+*/
     ?>
 
 
@@ -43,7 +43,7 @@
 
 
     <form method="POST" action="handleLogin.php">
-        <div class="container" id="login">
+        <div class="container-form" id="login">
             <h1>Login to your account</h1>
             <?php if (isset($_GET['error'])) { ?>
 
