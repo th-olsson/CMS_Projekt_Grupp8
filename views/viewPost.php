@@ -59,10 +59,10 @@ if (isset($_REQUEST['delete'])) {
 <body>
     <!-- container - wraps whole page -->
     <div class=container>
-   
+
         <!-- // navbar -->
         <?php    #Inserting header
-        include("../includes/header.php"); ?>
+        include("../includes/headerforviews.php"); ?>
 
         <?php if (isset($_GET['info'])) {
             if ($_GET['info'] == "updated") {
@@ -90,12 +90,14 @@ if (isset($_REQUEST['delete'])) {
             <?php #Gets posts from database
 
             //SQL - get selected data from all records in posts-table
-            $sql = 'SELECT u.ID, u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
+            $sql = 'SELECT p.ID, u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
         JOIN users as u WHERE p.UserID = u.ID';
             $stm = $db->prepare($sql);
             if ($stm->execute()) {
 
                 while ($row = $stm->fetch()) {
+                    //print_r($row);
+
                     $title = $row['Title'];
                     $username = $row['Username'];
                     $category = $row['Category'];
@@ -103,6 +105,7 @@ if (isset($_REQUEST['delete'])) {
                     $content = $row['Content'];
                     $date = $row['Date'];
                     $id = $row['ID'];
+
             ?>
                     <article class='post'>
                         <h3 class='post__title'><?= $title ?></h3>

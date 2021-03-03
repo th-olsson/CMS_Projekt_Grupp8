@@ -55,4 +55,3 @@ while ($row = $stm->fetch()) {
     echo $row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"];
 }
 echo "</pre>";
-?>

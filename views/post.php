@@ -33,7 +33,7 @@ $userId = 2;            //Placeholder ID
 <body>
     <div class="container">
 
-    <?php include ("../includes/header.php");?>
+        <?php include("../includes/headerforviews.php"); ?>
         <h1>Create a post</h1>
 
         <?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Image URL', 'Title' and 'Content'?>
@@ -42,20 +42,20 @@ $userId = 2;            //Placeholder ID
             <label for="date">Current date</label>
             <input type="text" name="date" readonly value="<?= $date ?>">
             <label for=author>Author</label>
-            <input type="text" name="author" readonly value="<?= $username ?>"></input>
+            <input type="text" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
             <label for="userId">ID</label>
-            <input type="text" name="userId" readonly value="<?= $userId ?>"></input>
+            <input type="text" name="userId" readonly value="<?= $_SESSION['id'] ?>"></input>
             <label for="category">Category</label>
             <input type="text" name="category" placeholder="Category of blog post"></input>
             <label for="image">Image URL</label>
-            <input type="file" name="imageToUpload" placeholder="Paste image URL here"></input>
+            <input type="file" name="imageToUpload"> </input>
             <label for="title">Title</label>
             <input type="text" name="title" placeholder="Title of blog post"></input>
             <label for="content">Content</label>
             <textarea name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
             <input type="submit" value="Submit"></input>
         </form>
-    <div>
+        <div>
 </body>
 
 </html>

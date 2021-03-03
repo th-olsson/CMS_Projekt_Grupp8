@@ -24,7 +24,7 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
         header("location:login.php?error=password is required");
         exit();
     } else {
-        $stm = $db->prepare("SELECT count(*), Role FROM users WHERE (Username = :username_IN  OR Email=:email_IN ) AND  Password =:password_IN");
+        $stm = $db->prepare("SELECT count(*), Role, ID FROM users WHERE (Username = :username_IN  OR Email=:email_IN ) AND  Password =:password_IN");
         $stm->bindParam(":username_IN", $username);
         $stm->bindParam(":email_IN", $email);
         $salt = "asdkmpäöl8234-23439*¨¨^?#=)€++98";
@@ -39,6 +39,7 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $pass;
             $_SESSION['role'] = $count['Role'];
+            $_SESSION['id'] = $count['ID'];
             $_SESSION['is_Login'] = "yes";
 
             if ($count['Role'] == "admin") {
