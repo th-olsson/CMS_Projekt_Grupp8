@@ -42,7 +42,7 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
             $_SESSION['is_Login'] = "yes";
 
             if ($count['Role'] == "admin") {
-                header("location:viewPost.php");
+                header("location:../index.php");
             }
             if ($count['Role'] == "user") {
 
