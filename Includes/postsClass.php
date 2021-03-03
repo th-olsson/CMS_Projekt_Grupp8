@@ -3,7 +3,6 @@
 class Posts {
     private $id;
     private $title;
-    private $description;
     private $image;
     private $category;
     private $content;
@@ -43,16 +42,17 @@ class Posts {
     }
 
     function getAll () {
-        return array($this->id, $this->title, $this->description, $this->image, $this->category, $this->content, $this->date, $this->userId);
+        return array($this->id, $this->title, $this->image, $this->category, $this->content, $this->date, $this->userId);
     }
 }
 
 $posts = [];
 
-$stm = $db->query("SELECT ID, Title, Description, Image, Category, Content, Date, UserId FROM posts");
+$stm = $db->query("SELECT ID, Title, Image, Category, Content, Date, UserId FROM posts");
 
 echo"<pre>";
 while ($row = $stm->fetch()) {
-    echo $row["ID"], $row[""], $row[""], $row[""], $row[""], $row[""], $row[""], $row[""];
+    echo $row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"];
 }
 echo "</pre>";
+?>
