@@ -42,7 +42,7 @@ if (isset($_REQUEST['delete'])) {
 ?>
 
 
-<?php include("../includes/head.php") ?>
+
 
 
 
@@ -51,35 +51,15 @@ if (isset($_REQUEST['delete'])) {
 
 <head>
     <title>Blogg | Homepage </title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
     <!-- container - wraps whole page -->
-    <div class="container">
+   <?php include("../includes/header.php") ?>
 
-
-        <!-- navbar -->
-        <header class="navbar">
-            <div class="logo_div">
-                <a href="index.php">
-                    <h1>Millhouse</h1>
-                </a>
-            </div>
-            <ul>
-                <li><a class="active" href="../index.php">Home</a></li>
-                <li><a href="#about">About Millhouse</a></li>
-                <li><a href="post.php">Create New Post</a></li>
-            </ul>
-        </header>
-
-        <div class="dropdown">
-            <span>Logout</span>
-            <div class="dropdown-content">
-                <a href="logout.php">logout</a>
-            </div>
-        </div>
-
+   
         <!-- // navbar -->
 
         <?php if (isset($_GET['info'])) {
