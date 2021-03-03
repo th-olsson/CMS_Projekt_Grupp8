@@ -39,7 +39,7 @@ if (isset($_POST['username_email']) && isset($_POST['password'])) {
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $pass;
             $_SESSION['role'] = $count['Role'];
-            $_SESSION['id'] = $count['ID'];
+            $_SESSION['userId'] = $count['ID'];
             $_SESSION['is_Login'] = "yes";
 
             if ($count['Role'] == "admin") {

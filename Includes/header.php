@@ -1,7 +1,7 @@
 <!-- navbar -->
 <header class="navbar">
     <div class="logo_div">
-        <a href="index.php">
+        <a href="../index.php">
             <h1>Millhouse</h1>
         </a>
     </div>
