@@ -6,7 +6,7 @@ if (!(isset($_SESSION['is_Login']))) {
     die();
 }
 if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
-    header('location:login.php');
+    header('location:../index.php');
     die();
 }
 
@@ -33,7 +33,7 @@ $userId = 2;            //Placeholder ID
     <h1>Create a post</h1>
 
     <?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Image URL', 'Title' and 'Content'?>
-    <form action="handlePost.php" method="post">
+    <form action="handlePost.php" method="post" enctype="multipart/form-data">
         <?php//Readonly inputs may be changed to hidden?>
         <label for="date">Current date</label>
         <input type="text" name="date" readonly value="<?= $date ?>">
@@ -44,7 +44,7 @@ $userId = 2;            //Placeholder ID
         <label for="category">Category</label>
         <input type="text" name="category" placeholder="Category of blog post"></input>
         <label for="image">Image URL</label>
-        <input type="text" name="image" placeholder="Paste image URL here"></input>
+        <input type="file" name="imageToUpload" placeholder="Paste image URL here"></input>
         <label for="title">Title</label>
         <input type="text" name="title" placeholder="Title of blog post"></input>
         <label for="content">Content</label>

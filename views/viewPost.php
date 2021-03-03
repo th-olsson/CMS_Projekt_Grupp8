@@ -5,7 +5,7 @@ if (!(isset($_SESSION['is_Login']))) {
     die();
 }
 if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
-    header('location:login.php');
+    header('location:../index.php');
     die();
 }
 
@@ -108,31 +108,37 @@ if (isset($_REQUEST['delete'])) {
             <?php #Gets posts from database
 
             //SQL - get selected data from all records in posts-table
-            $sql = 'SELECT * FROM posts';
+            $sql = 'SELECT u.ID, u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
+        JOIN users as u WHERE p.UserID = u.ID';
             $stm = $db->prepare($sql);
-
             if ($stm->execute()) {
 
                 while ($row = $stm->fetch()) {
-
+                    $title = $row['Title'];
+                    $username = $row['Username'];
+                    $category = $row['Category'];
+                    $image = $row['Image'];
+                    $content = $row['Content'];
+                    $date = $row['Date'];
+                    $id = $row['ID'];
             ?>
                     <article class='post'>
-                        <h3 class='post__title'><?= $row['Title'] ?></h3>
+                        <h3 class='post__title'><?= $title ?></h3>
                         <aside class='post__meta'>
-                            <adress>By $username</adress><time datetime='<?= $row['Date'] ?>'><?= $row['Date'] ?></time>
-                            <a href='$category.php'><?= $row['Category'] ?></a>
-                        </aside>";
-                        <img src='<?= $row['Image'] ?>' alt='img' />"; //May need some variable for alt attribute, describing image
-                        <p class='post__content'><?= $row['Content']  ?></p>
+                            <adress>By <?= $username ?></adress><time datetime='<?= $date ?>'><?= $date ?></time>
+                            <a href='$category.php'><?= $category ?></a>
+                        </aside>
+                        <img src='<?= $image ?>' alt='img' />
+                        <p class='post__content'><?= $content  ?></p>
                         <!--for editing and deleting post -->
                         <div>
                             <button class='edit-btn'>
-                                <a href='editPost.php?id=<?= $row['ID']; ?>'>Edit</a> </button>
+                                <a href='editPost.php?id=<?= $id; ?>'>Edit</a> </button>
 
                             <form method="POST">
 
 
-                                <input type='hidden' name='ID' value=<?= $row['ID']; ?> />
+                                <input type='hidden' name='ID' value=<?= $id; ?> />
 
                                 <button class='delete-btn' name='delete'>Delete</button>
 

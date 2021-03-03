@@ -25,7 +25,7 @@ if ($count > 0) {
     echo "User already exist";
 } else {
 
-    $sql = "INSERT IGNORE INTO users (Firstname, Lastname, Username, Email, Password) VALUES(:fname_IN, :lname_IN, :uname_IN,:email_IN,:password_IN)";
+    $sql = "INSERT IGNORE INTO users (Firstname, Lastname, Username, Email, Password, Role) VALUES(:fname_IN, :lname_IN, :uname_IN,:email_IN,:password_IN, 'user')";
 
     $stm = $db->prepare($sql);
     $stm->bindParam(':fname_IN', $firstname);
