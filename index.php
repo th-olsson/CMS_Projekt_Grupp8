@@ -1,6 +1,6 @@
 <?php include ("includes/database.php")?>
 <?php include("includes/head.php")?>
-
+<?php session_start()?>
 	<title>Blogg | Homepage </title>
 </head>
 
@@ -9,9 +9,7 @@
 	<div class="container">
 		<!-- navbar -->
 		<!-- navbar -->
-<header 
-<?php session_start()?>
-class="navbar">
+        <header class="navbar">
             <div class="logo_div">
                 <a href="index.php">
                     <h1>Millhouse</h1>

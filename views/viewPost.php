@@ -21,6 +21,7 @@ if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
 include("../includes/database.php");
 
 
+
 ?>
 
 
@@ -57,10 +58,11 @@ if (isset($_REQUEST['delete'])) {
 
 <body>
     <!-- container - wraps whole page -->
-   <?php include("../includes/header.php") ?>
-
+    <div class=container>
    
         <!-- // navbar -->
+        <?php    #Inserting header
+        include("../includes/header.php"); ?>
 
         <?php if (isset($_GET['info'])) {
             if ($_GET['info'] == "updated") {

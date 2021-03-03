@@ -1,3 +1,4 @@
+<?php include('../includes/database.php');?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,65 +13,62 @@
 </head>
 
 <body>
-    
+    <div class=container></div>
+
+        <?php
+        include("../includes/header.php");
+        ?>
+        
+        <form method="POST" action="handleSignUp.php">
+            <div class="container-form">
+                <h1>Register!</h1>
+                <div class="formData">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" name="firstname" class="firstname" id="firstname" required>
+                    <small>Error message</small>
+                </div>
+                <div class="formData">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" name="lastname" class="lastname" id="lastname" required>
+                    <small>Error message</small>
+                </div>
+                <div class="formData">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="username" id="username" required>
+                    <small>Error message</small>
+                </div>
+
+                <div class="formData">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="email" id="email" required>
+                    <small>Error message</small>
+                </div>
 
 
-    <?php
-    include('../includes/database.php');
-    include("../includes/header.php")
+                <div class="formData">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="password" id="password">
+                    <small>Error message</small>
+                </div>
 
 
 
-    ?>
-    <form method="POST" action="handleSignUp.php">
-        <div class="container-form">
-            <h1>Register!</h1>
-            <div class="formData">
-                <label for="firstname">Firstname</label>
-                <input type="text" name="firstname" class="firstname" id="firstname" required>
-                <small>Error message</small>
+                <input type="submit" value="Submit">
+
+
+
+
+
+
             </div>
-            <div class="formData">
-                <label for="lastname">Lastname</label>
-                <input type="text" name="lastname" class="lastname" id="lastname" required>
-                <small>Error message</small>
-            </div>
-            <div class="formData">
-                <label for="username">Username</label>
-                <input type="text" name="username" class="username" id="username" required>
-                <small>Error message</small>
-            </div>
-
-            <div class="formData">
-                <label for="email">Email</label>
-                <input type="email" name="email" class="email" id="email" required>
-                <small>Error message</small>
-            </div>
-
-
-            <div class="formData">
-                <label for="password">Password</label>
-                <input type="password" name="password" class="password" id="password">
-                <small>Error message</small>
-            </div>
-
-
-
-            <input type="submit" value="Submit">
 
 
 
 
 
 
-        </div>
-
-
-
-
-
-
-    </form>
+        </form>
+    <div>    
 </body>
 
 </html>
