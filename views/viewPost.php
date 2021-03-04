@@ -91,7 +91,7 @@ if (isset($_REQUEST['delete'])) {
 
             //SQL - get selected data from all records in posts-table
             $sql = 'SELECT p.ID, u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
-        JOIN users as u WHERE p.UserID = u.ID';
+        JOIN users as u WHERE p.UserID = u.ID ORDER BY p.ID DESC';
             $stm = $db->prepare($sql);
             if ($stm->execute()) {
 

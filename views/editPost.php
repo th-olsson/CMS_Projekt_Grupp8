@@ -1,9 +1,6 @@
 <?php
 include('../includes/database.php');
-
-
-
-
+session_start();
 
 
 if (isset($_GET['action'])) {
@@ -72,8 +69,7 @@ if (isset($action) && $action == "update") {
 $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
 
 //Get the logged in admins username and userId from $_SESSION
-$username = "Username"; //Placeholder name
-$userId = 2; //Placeholder ID
+
 
 ?>
 
@@ -98,7 +94,7 @@ $userId = 2; //Placeholder ID
 
     $success = $stm->execute();
     $postData = $stm->fetch();
-    print_r($postData);
+    //print_r($postData);
 
     if (!$success) {
         echo "<h3>Något gick fel!</h3>";
@@ -117,9 +113,9 @@ $userId = 2; //Placeholder ID
         <label for="date">Current date</label>
         <input type="text" name="date" readonly value="<?= $date ?>">
         <label for=author>Author</label>
-        <input type="text" name="author" readonly value="<?= $username ?>"></input>
+        <input type="text" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
         <label for="userId">ID</label>
-        <input type="text" name="userId" value="<?= $userId ?>"></input>
+        <input type="text" name="userId" value="<?= $_SESSION['userId'] ?>"></input>
         <label for="category">Category</label>
         <input type="text" name="category" value="<?= $postData['Category']; ?>" placeholder="Category of blog post"></input>
         <label for="image">Image URL</label>

@@ -5,24 +5,24 @@ $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 if (isset($_POST['submit'])) {
     $check = getimagesize($_FILES['imageToUpload']['tmp_name']);
     if ($check == false) {
-        echo "the file is not an image";
+        header('location:post.php?error=the file is not an image');
         die();
     }
 }
 
 if (file_exists($target_file)) {
-    echo "The file already exist";
+    header('location:post.php?error=The file already exist');
+
     die();
 }
 
 if ($_FILES['imageToUpload']['size'] > 1000000) {
-    echo "The file size is too big";
+    header('location:post.php?error=The file size is too big');
     die();
 }
 
 if ($fileType !== "png" && $fileType !== "gif" && $fileType !== "jpg" && $fileType !== "jpeg") {
-
-    echo "you can only upload png, , gif, jpg & jpeg format";
+    header('location:post.php?error=you can only upload png, gif, jpg & jpeg format');
     die();
 }
 

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
+    header('location:../index.php');
+    die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +23,7 @@
 <body>
     <div class=container>
 
-        <?php include("../includes/header.php");
+        <?php include("../includes/headerforviews.php");
 
         /*
         session_start();

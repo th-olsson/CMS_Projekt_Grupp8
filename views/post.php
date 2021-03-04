@@ -35,6 +35,12 @@ $userId = $_SESSION['userId'];
 
         <?php include("../includes/headerforviews.php"); ?>
         <h1>Create a post</h1>
+        <!--Display error here-->
+        <?php if (isset($_GET['error'])) { ?>
+
+            <p class="error"><?php echo $_GET['error']; ?> </p>
+
+        <?php } ?>
 
         <?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Image URL', 'Title' and 'Content'?>
         <form action="handlePost.php" method="post" enctype="multipart/form-data">
@@ -44,7 +50,7 @@ $userId = $_SESSION['userId'];
             <label for=author>Author</label>
             <input type="text" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
             <label for="userId">ID</label>
-            <input type="text" name="userId" readonly value="<?= $_SESSION['id'] ?>"></input>
+            <input type="text" name="userId" readonly value="<?= $_SESSION['userId'] ?>"></input>
             <label for="category">Category</label>
             <input type="text" name="category" placeholder="Category of blog post"></input>
             <label for="image">Image URL</label>

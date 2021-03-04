@@ -11,9 +11,10 @@
         if (!isset($_SESSION['is_Login'])) { ?>
 
             <li><a href="login.php">Login</a></li>
+            <li><a href="register.php">Register</a></li>
         <?php  } ?>
 
-        <li><a href="register.php">Register</a></li>
+
         <?php
         if (@$_SESSION['role'] == "admin") { ?>
             <li><a href="post.php">Create new Post</a></li>
