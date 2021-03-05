@@ -27,8 +27,7 @@ $postId = $_GET['id'];
 <?php 
 include("../includes/header.php") ?>
     <h2>Comments</h2>
-<?php //Get post info from database
-print_r($_SESSION);
+<?php #Get post data from database
 
 include("../includes/database.php");
 
@@ -40,13 +39,9 @@ $stm->execute();
 include("../classes/Posts.php"); //Include Post-class
 
 #Creates new objects from Post-class and uses its method to create HTML-elements
-
 $row = $stm->fetch();
-
 $i = $row["ID"]; //Index for post-objects
-
 $post[$i] = new Post($row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"], $row["Username"]);
-
 $post[$i]->createPostHtml();
 ?>
 
