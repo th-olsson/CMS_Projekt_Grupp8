@@ -1,14 +1,28 @@
 <?php include ("includes/database.php")?>
-<?php include("includes/head.php")?>
 <?php session_start()?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
 	<title>Blogg | Homepage </title>
 </head>
 
 <body>
+    <!-- IF USER IS LOGGED OUT, SHOW LOGIN FORM -->
+    <!-- IF USER IS LOGGED IN, DISPLAY BLOG POSTS -->
+
+    <?php //IF USER IS LOGGED OUT, REDIRECT TO LOGIN.PHP
+    if (!isset($_SESSION['is_Login'])){
+        header("location:views/login.php");
+        die();}?>
+
 	<!-- container - wraps whole page -->
 	<div class="container">
 		<!-- navbar -->
 		<!-- navbar -->
+	<main class="container">
         <header class="navbar">
             <div class="logo_div">
                 <a href="index.php">
@@ -30,7 +44,6 @@
                     <li><a href="views/post.php">Create new Post</a></li>
 
                     <li><a href="views/viewPost.php">Edit Post</a></li>
-
 
                 <?php } ?>
                 <?php
@@ -56,5 +69,32 @@
 
 		<!-- footer -->
 		<?php include("includes/footer.php") ?>
- 
-    
+
+
+		<!-- // footer -->
+
+        </main>
+	<!-- // container -->
+</body>
+</html>
+
+		</div>
+    </main>
+		<!-- // Page content -->
+
+		<?php #Print HTML posts by creating new Post-objects and using method to create
+
+        include("includes/postsClass.php");
+
+        $stm = $db->query('');
+
+        ?>
+
+    <!-- footer -->
+    <div class="footer">
+        <p>Grupp 8 &copy; <?php echo date('Y'); ?></p>
+    </div>
+    <!-- // footer -->
+	<!-- // container -->
+</body>
+</html>

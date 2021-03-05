@@ -15,7 +15,7 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
 
 //Get the logged in admins username and userId from $_SESSION
 $username = $_SESSION['username'];
-$userId = 2;            //Placeholder ID
+$userId = $_SESSION['userId'];
 
 ?>
 
