@@ -1,9 +1,4 @@
 <div class="footer">
-			<p>Grupp 8 &copy; <?php echo date('Y'); ?></p>
-		</div>
-		<!-- // footer -->
+	<p>Grupp 8 &copy; <?php echo date('Y'); ?></p>
+</div>
 
-	</div>
-	<!-- // container -->
-</body>
-</html>
