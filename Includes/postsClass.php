@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-class Posts {
+class Posts
+{
     private $id;
     private $title;
     private $image;
@@ -9,7 +10,8 @@ class Posts {
     private $date;
     private $userId;
 
-    function __construct($id_IN, $title_IN, $image_IN, $category_IN, $content_IN, $date_IN, $userId_IN) {
+    function __construct($id_IN, $title_IN, $image_IN, $category_IN, $content_IN, $date_IN, $userId_IN)
+    {
         $this->id = $id_IN;
         $this->title = $title_IN;
         $this->image = $image_IN;
@@ -19,39 +21,82 @@ class Posts {
         $this->userId = $userId_IN;
     }
 
-    function getId()  {
+    function getId()
+    {
         return $this->id;
     }
-    function getTitle()  {
+    function getTitle()
+    {
         return $this->title;
     }
-    function getImage()  {
+    function getImage()
+    {
         return $this->image;
     }
-    function getCategory()  {
+    function getCategory()
+    {
         return $this->category;
     }
-    function getContent()  {
+    function getContent()
+    {
         return $this->content;
     }
-    function getDate()  {
+    function getDate()
+    {
         return $this->date;
     }
-    function getUserId()  {
+    function getUserId()
+    {
         return $this->userId;
     }
 
-    function getAll () {
+    function getAll()
+    {
         return array($this->id, $this->title, $this->image, $this->category, $this->content, $this->date, $this->userId);
     }
 }
 
-$posts = [];
+$sql = 'SELECT p.ID, u.Username, p.Title, p.Category, p.Image, p.Content, p.Date, p.UserID FROM posts as p
+JOIN users as u WHERE p.UserID = u.ID ORDER BY p.ID DESC';
+$stm = $db->prepare($sql);
+if ($stm->execute()) {
 
-$stm = $db->query("SELECT ID, Title, Image, Category, Content, Date, UserId FROM posts");
+    while ($row = $stm->fetch()) {
+        //print_r($row);
+        $post = new Posts(@$row['ID'], $row['Title'], $row['Image'], $row['Category'], $row['Content'], $row['Date'], $row['UserID']);
 
-echo"<pre>";
-while ($row = $stm->fetch()) {
-    echo $row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"];
-}
-echo "</pre>";
+        $imgPath = "views/" . $post->getImage();
+        //echo $imgPath;
+?>
+        <article class='post'>
+            <h3 class='post__title'><?= $post->getId(); ?></h3>
+            <aside class='post__meta'>
+                <adress>By <?= @$_SESSION['username'] ?></adress><time datetime='<?= $post->getDate(); ?>'><?= $post->getDate(); ?></time>
+                <a href='$category.php'><?= $post->getCategory(); ?></a>
+            </aside>
+            <img src='<?= $imgPath ?>' alt='img' />
+            <p class='post__content'><?= $post->getContent();  ?></p>
+            <!--for editing and deleting post -->
+            <?php if (@$_SESSION['role'] == "admin") { ?>
+
+                <div>
+                    <button class='edit-btn'>
+                        <a href='../views/editPost.php?id=<?= $post->getId(); ?>'>Edit</a> </button>
+
+                    <form method="POST">
+
+
+                        <input type='hidden' name='ID' value=<?= $post->getId(); ?> />
+
+                        <button class='delete-btn' name='delete'>Delete</button>
+
+                    </form>
+                </div>
+    <?php }
+        }
+    } else {
+        echo "error";
+        die();
+    }
+
+    ?>

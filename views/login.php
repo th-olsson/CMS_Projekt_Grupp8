@@ -25,20 +25,8 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
 
         <?php include("../includes/headerforviews.php");
 
-        /*
-        session_start();
-        if ((isset($_SESSION['username']) or isset($_SESSION['email']) and isset($_SESSION['password']))) {
 
-            echo "<h1> Welcome" . " " . $_SESSION['username'] . "</h1>";
-            echo "<a href='logout.php'>Log out </a>";
-            die();
-        }
-
-    */
         ?>
-
-
-
 
 
         <form method="POST" action="handleLogin.php">

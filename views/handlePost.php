@@ -62,6 +62,7 @@ if (move_uploaded_file($_FILES['imageToUpload']['tmp_name'], $target_file)) {
 
     if ($stm->execute()) {
         echo "your data has been successfully added to the database";
+        header('location:../index.php');
         echo '<a href="post.php">go back</a>';
     } else {
         echo "something went wrong with data-uploading in database";

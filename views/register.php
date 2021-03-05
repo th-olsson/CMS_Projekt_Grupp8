@@ -15,9 +15,9 @@
 <body>
     <div class=container></div>
 
-    <?php
-    include("../includes/headerforviews.php");
-    ?>
+
+    <?php include("../includes/headerforviews.php"); ?>
+
 
     <form method="POST" action="handleSignUp.php">
         <div class="formValidator">
