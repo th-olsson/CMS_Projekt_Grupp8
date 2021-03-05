@@ -21,9 +21,8 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
 </head>
 
 <body>
-    <div class=container>
-        <?php include("../includes/header.php");?>
-
+    <?php include("../includes/header.php");?>
+    <main class=container>
         <form method="POST" action="handleLogin.php">
             <div class="formValidator" id="login">
 
@@ -42,10 +41,9 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
                 </div>
                     <input type="submit" value="LOGIN">
                     <p>Not registered? <a class="registerLink " href="register.php">Create an account</a></p>
-                    
             </div>
         </form>
-    <div>
+    </main>
     <?php include("../includes/footer.php");?>
 </body>
 </html>

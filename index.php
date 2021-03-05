@@ -12,14 +12,9 @@
 </head>
 
 <body>
-
-    <!-- container - wraps whole page -->
-    <div class="container">
-        <!-- navbar -->
-        <?php include("includes/header.php"); ?>
-        <!-- // navbar -->
-
-        <!-- Page content -->
+    <main class="container">
+    <?php include("includes/header.php"); ?>
+       <!-- Page content -->
         <div class="content">
             <h2 class="content-title">Recent Articles</h2>
             <hr>
@@ -40,5 +35,6 @@
         <?php include("includes/footer.php");?>
         
         <?php include("includes/postsClass.php"); ?>
+    </main>
 </body>
 </html>
