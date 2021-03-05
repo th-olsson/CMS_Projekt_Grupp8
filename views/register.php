@@ -16,7 +16,7 @@
     <div class=container></div>
 
 
-    <?php include("../includes/headerforviews.php"); ?>
+    <?php include("../includes/header.php"); ?>
 
 
     <form method="POST" action="handleSignUp.php">

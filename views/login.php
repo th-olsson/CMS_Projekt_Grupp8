@@ -23,7 +23,7 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
 <body>
     <div class=container>
 
-        <?php include("../includes/headerforviews.php");
+        <?php include("../includes/header.php");
 
 
         ?>

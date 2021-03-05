@@ -33,7 +33,7 @@ $userId = $_SESSION['userId'];
 <body>
     <div class="container">
 
-        <?php include("../includes/headerforviews.php"); ?>
+        <?php include("../includes/header.php"); ?>
         <h1>Create a post</h1>
         <!--Display error here-->
         <?php if (isset($_GET['error'])) { ?>

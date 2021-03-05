@@ -55,7 +55,7 @@ if (isset($_REQUEST['delete'])) {
 
         <!-- // navbar -->
         <?php    #Inserting header
-        include("../includes/headerforviews.php"); ?>
+        include("../includes/header.php"); ?>
 
         <?php if (isset($_GET['info'])) {
             if ($_GET['info'] == "updated") {
