@@ -1,21 +1,20 @@
 <?php include("includes/database.php") ?>
-
-
-<?php include("includes/head.php") ?>
 <?php session_start(); ?>
-<title>Blogg | Homepage </title>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogg | Homepage </title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- container - wraps whole page -->
-    <div class="container">
-        <!-- navbar -->
-        <?php include("includes/header.php"); ?>
-        <!-- navbar -->
-
-        <!-- // navbar -->
-
-        <!-- Page content -->
+    <main class="container">
+    <?php include("includes/header.php"); ?>
+       <!-- Page content -->
         <div class="content">
             <h2 class="content-title">Recent Articles</h2>
             <hr>
@@ -31,11 +30,11 @@
                 echo "<div class='error'> The data has been deleted </div>";
             }
         } ?>
-
         <!-- // Page content -->
+
+        <?php include("includes/footer.php");?>
+        
         <?php include("includes/postsClass.php"); ?>
-
-
-
-        <!-- footer -->
-        <?php include("includes/footer.php") ?>
+    </main>
+</body>
+</html>

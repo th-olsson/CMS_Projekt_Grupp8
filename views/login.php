@@ -21,53 +21,29 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
 </head>
 
 <body>
-    <div class=container>
-
-        <?php include("../includes/header.php");
-
-
-        ?>
-
-
+    <?php include("../includes/header.php");?>
+    <main class=container>
         <form method="POST" action="handleLogin.php">
             <div class="formValidator" id="login">
-                <h1>Login</h1>
+
                 <?php if (isset($_GET['error'])) { ?>
-
                     <p class="error"><?php echo $_GET['error']; ?> </p>
-
                 <?php } ?>
 
-
-
-
+                <h1>Login</h1>
                 <div class="formControl">
                     <label for="username">Username/Email</label>
                     <input type="text" name="username_email" placeholder="Username/Email" />
-
-                    <div class="formControl">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="password" id="password">
-
-                    </div>
-
-
-                    <input type="submit" value="LOGIN">
-                    <p>not registered? <a class="registerLink " href="register.php">Create an account</a></p>
-
-
-
-
-
                 </div>
-
-
-
-
-
-
+                <div class="formControl">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="password" id="password">
+                </div>
+                    <input type="submit" value="LOGIN">
+                    <p>Not registered? <a class="registerLink " href="register.php">Create an account</a></p>
+            </div>
         </form>
-        <div>
+    </main>
+    <?php include("../includes/footer.php");?>
 </body>
-
 </html>

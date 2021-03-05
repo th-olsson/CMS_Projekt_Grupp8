@@ -31,15 +31,13 @@ $userId = $_SESSION['userId'];
 </head>
 
 <body>
-    <div class="container">
-
-        <?php include("../includes/header.php"); ?>
+    <?php include("../includes/header.php"); ?>
+    <main class="container">
         <h1>Create a post</h1>
+        
         <!--Display error here-->
         <?php if (isset($_GET['error'])) { ?>
-
             <p class="error"><?php echo $_GET['error']; ?> </p>
-
         <?php } ?>
 
         <?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Image URL', 'Title' and 'Content'?>
@@ -61,7 +59,8 @@ $userId = $_SESSION['userId'];
             <textarea name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
             <input type="submit" value="Submit"></input>
         </form>
-        <div>
+    <main>
+    <?php include("../includes/footer.php");?>
 </body>
 
 </html>
