@@ -1,6 +1,6 @@
 <header class="navbar">
     <div class="logo_div">
-        <a href="index.php">
+        <a href="/CMS_Projekt_Grupp8/index.php">
             <h1>Millhouse</h1>
         </a>
     </div>
