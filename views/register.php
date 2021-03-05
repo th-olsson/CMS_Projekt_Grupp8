@@ -15,9 +15,7 @@
 <body>
     <div class=container></div>
 
-
     <?php include("../includes/header.php"); ?>
-
 
     <form method="POST" action="handleSignUp.php">
         <div class="formValidator">
@@ -75,6 +73,7 @@
 
     </form>
     <div>
+    <?php include("../includes/footer.php");?>
 </body>
 
 </html>

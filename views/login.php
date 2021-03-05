@@ -68,6 +68,7 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
 
         </form>
         <div>
+    <?php include("../includes/footer.php");?>
 </body>
 
 </html>

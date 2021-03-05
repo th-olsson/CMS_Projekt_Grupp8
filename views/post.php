@@ -62,6 +62,7 @@ $userId = $_SESSION['userId'];
             <input type="submit" value="Submit"></input>
         </form>
         <div>
+        <?php include("../includes/footer.php");?>
 </body>
 
 </html>
