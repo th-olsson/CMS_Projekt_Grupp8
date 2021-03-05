@@ -1,4 +1,4 @@
-<?php include('../includes/database.php');?>
+<?php include('../includes/database.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,60 +15,66 @@
 <body>
     <div class=container></div>
 
-        <?php
-        include("../includes/header.php");
-        ?>
-        
-        <form method="POST" action="handleSignUp.php">
-            <div class="container-form">
-                <h1>Register!</h1>
-                <div class="formData">
-                    <label for="firstname">Firstname</label>
-                    <input type="text" name="firstname" class="firstname" id="firstname" required>
-                    <small>Error message</small>
-                </div>
-                <div class="formData">
-                    <label for="lastname">Lastname</label>
-                    <input type="text" name="lastname" class="lastname" id="lastname" required>
-                    <small>Error message</small>
-                </div>
-                <div class="formData">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" class="username" id="username" required>
-                    <small>Error message</small>
-                </div>
 
-                <div class="formData">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" class="email" id="email" required>
-                    <small>Error message</small>
-                </div>
+    <?php include("../includes/header.php"); ?>
 
 
-                <div class="formData">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="password" id="password">
-                    <small>Error message</small>
-                </div>
+    <form method="POST" action="handleSignUp.php">
+        <div class="formValidator">
+            <!--Display registeration error for null inputs-->
+            <?php if (isset($_GET['error'])) { ?>
+
+                <p class="error"><?php echo $_GET['error']; ?> </p>
+
+            <?php } ?>
+            <h1>Register!</h1>
+            <div class="formControl">
+                <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" class="firstname" id="firstname">
+
+            </div>
+            <div class="formControl">
+                <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" class="lastname" id="lastname">
+
+            </div>
+            <div class="formControl">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="username" id="username">
+
+            </div>
+
+            <div class="formControl">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="email" id="email">
+
+            </div>
 
 
-
-                <input type="submit" value="Submit">
-
-
-
-
-
+            <div class="formControl">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="password" id="password">
 
             </div>
 
 
 
+            <input type="submit" value="Submit">
+
+            <p>Already a user? <a class="registerLink " href="login.php">Login</a></p>
 
 
 
-        </form>
-    <div>    
+
+        </div>
+
+
+
+
+
+
+    </form>
+    <div>
 </body>
 
 </html>

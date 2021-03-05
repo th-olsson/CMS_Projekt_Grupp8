@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-class Posts {
+class Posts
+{
     private $id;
     private $title;
     private $image;

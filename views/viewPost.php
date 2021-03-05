@@ -9,18 +9,12 @@ if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
     die();
 }
 
-
-
 ?>
-
-
 
 
 <?php #Database connection
 
 include("../includes/database.php");
-
-
 
 ?>
 
@@ -43,23 +37,22 @@ if (isset($_REQUEST['delete'])) {
 ?>
 
 
-
-
-
-
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Blogg | Homepage </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogg | Edit Post </title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/styles.css">
+
 </head>
 
 <body>
     <!-- container - wraps whole page -->
     <div class=container>
-   
+
         <!-- // navbar -->
         <?php    #Inserting header
         include("../includes/header.php"); ?>
@@ -78,8 +71,6 @@ if (isset($_REQUEST['delete'])) {
 
 
 
-
-
         <!-- Page content -->
         <div class="content">
             <h2 class="content-title">Recent Articles</h2>
@@ -90,12 +81,14 @@ if (isset($_REQUEST['delete'])) {
             <?php #Gets posts from database
 
             //SQL - get selected data from all records in posts-table
-            $sql = 'SELECT u.ID, u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
-        JOIN users as u WHERE p.UserID = u.ID';
+            $sql = 'SELECT p.ID, u.Username, p.Title, p.Category, p.Image, p.Content, p.Date FROM posts as p
+        JOIN users as u WHERE p.UserID = u.ID ORDER BY p.ID DESC';
             $stm = $db->prepare($sql);
             if ($stm->execute()) {
 
                 while ($row = $stm->fetch()) {
+                    //print_r($row);
+
                     $title = $row['Title'];
                     $username = $row['Username'];
                     $category = $row['Category'];
@@ -103,6 +96,7 @@ if (isset($_REQUEST['delete'])) {
                     $content = $row['Content'];
                     $date = $row['Date'];
                     $id = $row['ID'];
+
             ?>
                     <article class='post'>
                         <h3 class='post__title'><?= $title ?></h3>
