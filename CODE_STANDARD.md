@@ -12,7 +12,7 @@ Example: if a partial contains &lt;head&gt; it must also contain the ending tag 
 <br>
   <li>
 Don't use HTML-elements as CSS selectors. Use classes or ID's instead.<br>
-Example: .heading {color:red} or #heading {text:red} instead of h1 {text:red}.<br>
+Example: .heading {color:red} or #heading {color:red} instead of h1 {color:red}.<br>
     </li>
 <br>
   <li>
