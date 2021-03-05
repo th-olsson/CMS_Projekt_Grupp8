@@ -7,7 +7,7 @@ Reason: This way partials using links can be used independent of the hierarchica
 <br>
   <li>
 Partials using tags must enclose those tags within those partials.<br>
-Example: if a partial contains <head> it must also contain the ending tag </head>.<br>
+Example: if a partial contains &lt;head&gt; it must also contain the ending tag &lt;/head&gt;.<br>
   </li>
 <br>
   <li>
