@@ -8,6 +8,8 @@
 
 #? Consideration: be able to see comments if offline but only ablle to comment if online?
 
+session_start();
+
 $postId = $_GET['id'];
 
 ?>
@@ -18,12 +20,15 @@ $postId = $_GET['id'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comments</title>
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-    <h1>Comments</h1>
-
+<?php 
+include("../includes/header.php") ?>
+    <h2>Comments</h2>
 <?php //Get post info from database
+print_r($_SESSION);
 
 include("../includes/database.php");
 
@@ -44,6 +49,16 @@ $post[$i] = new Post($row["ID"], $row["Title"], $row["Image"], $row["Category"],
 
 $post[$i]->createPostHtml();
 ?>
+
+<?php $userId = $_SESSION['userId']; $date = date('Y-m-d'); ?>
+<!-- Should send data of Content, Date, PostId, UserId -->
+<form action="handleComments.php" method="post">
+    <input type="text" name="userId" hidden value="<?= $userId ?>"></input>
+    <input type="text" name="date" hidden value="<?= $date ?>">
+    <input type="text" name="postId" hidden value="<?= $postId ?>">
+    <textarea name="content" cols="30" rows="10" placeholder="Write your comment.."></textarea>
+    <input type="submit" value="Send comment"></input>
+</form>
 
 </body>
 </html>
