@@ -2,7 +2,6 @@
 include('../includes/database.php');
 session_start();
 
-
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 } else {
@@ -37,8 +36,6 @@ if (isset($action) && $action == "update") {
         echo "you can only upload png, , gif, jpg & jpeg format";
         die();
     }
-
-
 
 
     if (move_uploaded_file($_FILES['imageToReplace']['tmp_name'], $target_file)) {
@@ -101,10 +98,6 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
         die();
     }
 
-
-
-
-
     ?>
     <form action="editPost.php?action=update" method="post" enctype="multipart/form-data">
         <?php//Readonly inputs may be changed to hidden
@@ -127,13 +120,5 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
         <input type="submit" value="update" />
     </form>
 
-
-
-
-
-
-
-
 </body>
-
 </html>
