@@ -1,7 +1,5 @@
-<?php
-
-class Posts
-{
+<?php 
+class Post {
     private $id;
     private $title;
     private $image;
@@ -22,23 +20,20 @@ class Posts
         $this->username = $username_IN;
     }
 
-    private $comments = [];
+    // private $posts = [];
 
-    private $posts = [];
+    // private $comments = [];
 
     function createPostHtml(){
-        #SQL - 
-        $stm = $db-query('');
 
         echo "<article class='post' id='$this->id'>";
         echo "<h3 class='post__title'>$this->title</h3>";
         echo "<aside class='post__meta'><adress>By $this->username</adress><time datetime='$this->date'>$this->date</time><a href='$this->category'>$this->category</a></aside>";
         echo "<img src='$this->image' alt='img' />";
         echo "<p class='post__content'>$this->content</p>";
-        echo "<a class='post__comment' href=''>
+        echo "<a class='post__comment' href='views/comments.php?id=$this->id'>Comments</a>
         </article>";
 
-        //For all users, create 
         //If admin is logged in, create buttons to edit and delete
         if(@$_SESSION['role'] == "admin"){
             echo "<div>";
@@ -53,3 +48,4 @@ class Posts
         }
     }
 }
+?>
