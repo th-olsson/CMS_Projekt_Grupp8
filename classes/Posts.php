@@ -39,8 +39,7 @@ class Post {
         echo "<a class='post__comment' href='views/comments.php?id=$this->id'>Comments</a>";
 
         } elseif ($fileName == "comments.php"){
-            echo "#Here should be comments";
-            echo "#Here should be form to comment";
+            // Might swap some code from comments.php to here instead
         }
 
         echo "</article>";
