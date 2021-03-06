@@ -43,6 +43,7 @@ $row = $stm->fetch();
 $i = $row["ID"]; //Index for post-objects
 $post[$i] = new Post($row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"], $row["Username"]);
 $post[$i]->createPostHtml();
+
 ?>
 
 <?php $userId = $_SESSION['userId']; $date = date('Y-m-d'); ?>
