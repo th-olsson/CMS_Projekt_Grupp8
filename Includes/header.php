@@ -10,8 +10,8 @@
             <li><a class=headerLinks href="#about">About Millhouse</a></li>
             <?php
             if (!isset($_SESSION['is_Login'])) { ?>
-
-                <li><a class=headerLinks href="/CMS_Projekt_Grupp8/views/login.php">Login</a></li>
+class=headerLinks
+                <li><a  href="/CMS_Projekt_Grupp8/views/login.php">Login</a></li>
                 <li><a class=headerLinks href="/CMS_Projekt_Grupp8/views/register.php">Register</a></li>
             <?php  } ?>
 
@@ -25,7 +25,7 @@
 
             <?php //If any user is logged in, display 'logout'
             if (@$_SESSION['role'] == "admin" || @$_SESSION['role'] == "user") { ?>
-                <li><a href="/CMS_Projekt_Grupp8/views/logout.php">Logout</a></li>
+                <li><a class=headerLinks href="/CMS_Projekt_Grupp8/views/logout.php">Logout</a></li>
             <?php  } ?>
 
         </ul>
