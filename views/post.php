@@ -26,7 +26,7 @@ $userId = $_SESSION['userId'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
     <title>Create Post</title>
 </head>
 
@@ -41,7 +41,8 @@ $userId = $_SESSION['userId'];
         <?php } ?>
 
         <?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Image URL', 'Title' and 'Content'?>
-        <form action="handlePost.php" method="post" enctype="multipart/form-data">
+        
+        <form class="handlePostForm" action="handlePost.php" method="post" enctype="multipart/form-data">
             <?php//Readonly inputs may be changed to hidden?>
             <label for="date">Current date</label>
             <input type="text" name="date" readonly value="<?= $date ?>">

@@ -27,7 +27,7 @@ ul {
 	justify-content: flex-end;
 }
 
-a {
+.headerLinks {
 	text-decoration: none;
 	color: white;
 
@@ -51,10 +51,8 @@ li a:hover {
 
 /*footer styling*/
 .footer {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	position: relative;
+	bottom: 0px;
 	color: white;
 	background-color: #73707D;
 	text-align: center;
@@ -172,11 +170,13 @@ margin-bottom: 15px;
 	  }
 	
 	.edit-btn{
+	padding: 4px 12px 4px 12px;	
 	background:grey;
 	
 	}
 	
 	.delete-btn{
+	padding: 4px;
 	background:red;
 	
 	}
@@ -198,4 +198,26 @@ margin-bottom: 15px;
 	
 	.dropdown:hover .dropdown-content {
 	  display: block;
+	}
+
+	.content {
+		width: 80%;
+		margin: 0px auto;
+		background-color:rgb(224, 215, 202);
+}
+	
+	.post {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	a {
+		color: black;
+
+	}
+
+	.handlePostForm {
+		display: flex;
+		flex-direction: column;
 	}
