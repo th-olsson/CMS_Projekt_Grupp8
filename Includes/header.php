@@ -22,12 +22,12 @@
 
 
             <?php } ?>
-            <?php
+
+            <?php //If any user is logged in, display 'logout'
             if (@$_SESSION['role'] == "admin" || @$_SESSION['role'] == "user") { ?>
-
-                <li><a class=headerLinks href="/CMS_Projekt_Grupp8/views/logout.php">Logout</a></li>
-
+                <li><a href="/CMS_Projekt_Grupp8/views/logout.php">Logout</a></li>
             <?php  } ?>
+
         </ul>
     </nav>
 </header>

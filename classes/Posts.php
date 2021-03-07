@@ -31,11 +31,21 @@ class Post {
         echo "<aside class='post__meta'><adress>By $this->username</adress><time datetime='$this->date'>$this->date</time><a href='$this->category'>$this->category</a></aside>";
         echo "<img src='$this->image' alt='img' />";
         echo "<p class='post__content'>$this->content</p>";
-        echo "<a class='post__comment' href='views/comments.php?id=$this->id'>Comments</a>
-        </article>";
 
-        //If admin is logged in, create buttons to edit and delete
-        if(@$_SESSION['role'] == "admin"){
+        //Condition: print links to comments if on index.php, print comments and form to comment if on comments.php
+        $fileName = basename($_SERVER['PHP_SELF']); //Gets file name of current page
+        if ($fileName == "index.php"){
+
+        echo "<a class='post__comment' href='views/comments.php?id=$this->id'>Comments</a>";
+
+        } elseif ($fileName == "comments.php"){
+            // Might swap some code from comments.php to here instead
+        }
+
+        echo "</article>";
+
+        //If admin is logged in, create buttons to edit and delete - only applies on index.php
+        if(@$_SESSION['role'] == "admin" && $fileName == "index.php"){
             echo "<div>";
             echo "<button class='edit-btn'>";
             echo "<a href='views/editPost.php?id=$this->id'>Edit</a>";

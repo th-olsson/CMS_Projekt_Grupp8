@@ -15,42 +15,41 @@
     <main class="container">
     <?php include("includes/header.php"); ?>
 
-       <!-- Page content -->
-        <div class="content">
-            <h2 class="content-title">Recent Articles</h2>
-            <hr>
-
-            <?php #Posts
-            
-            #SQL - get post-data incl poster id and username. Data will be inserted in constructor of Post-class
-            $stm = $db->query("SELECT p.ID, p.Title, p.Image, p.Category, p.Content, p.Date, p.UserId, u.Username FROM posts as p
-            JOIN users as u WHERE u.Id=p.UserId");
-
-            include("classes/Posts.php"); //Include Post-class
-            
-            #Creates new objects from Post-class and uses its method to create HTML-elements
-            while ($row = $stm->fetch()) {
-
-                $i = $row["ID"]; //Index for post-objects
-
-                $post[$i] = new Post($row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"], $row["Username"]);
-            
-                $post[$i]->createPostHtml();
-            }
-            ?>
-
-        </div>
-        <?php if (isset($_GET['info'])) {
-            if ($_GET['info'] == "updated") {
+    <?php //If post has been edited or deleted, show message
+    if (isset($_GET['info'])) {
+            if ($_GET['info'] == "updated") { //on index.php/?info=updated
                 echo "<div class='success'> The data has been updated </div>";
             }
         } ?>
 
         <?php if (isset($_GET['info'])) {
-            if ($_GET['info'] == "deleted") {
+            if ($_GET['info'] == "deleted") { //on index.php/?info=deleted
                 echo "<div class='error'> The data has been deleted </div>";
             }
         } ?>
+
+    <?php //On clicking delete button, remove post from database and redirect to index.php/?info=deleted
+    if (isset($_REQUEST['delete'])) {
+        $id = $_POST['ID'];
+        $sql = "DELETE FROM posts WHERE ID=:id_IN";
+        $stm = $db->prepare($sql);
+        $stm->bindParam(":id_IN", $id);
+        if ($stm->execute()) {
+
+            header("location:index.php?info=deleted");
+        } else {
+            echo "Något gick fel!";
+            die();
+        }
+    }
+    ?>
+
+       <!-- Page content -->
+        <div class="content">
+            <h2 class="content-title">Recent Articles</h2>
+            <hr>
+
+        <?php include("includes/printPosts.php")?>
         <!-- // Page content -->
 
     </main>
