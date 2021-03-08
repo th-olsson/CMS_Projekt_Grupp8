@@ -111,7 +111,7 @@ if (isset($_REQUEST['delete'])) {
                         <?php } ?>
                         <p class='post__content'><?= $content  ?></p>
                         <!--for editing and deleting post -->
-                        <div>
+                        <div class="btn-div">
                             <button class='edit-btn'>
                                 <a href='editPost.php?id=<?= $id; ?>'>Edit</a> </button>
 
