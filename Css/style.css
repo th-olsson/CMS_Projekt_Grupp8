@@ -23,7 +23,7 @@ body {
 	padding: 0 15px;
 }
 
-ul {
+.headerUl {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
@@ -35,7 +35,7 @@ ul {
 
 }
 
-li {
+.headerLi {
 
 	list-style-type: none;
 	padding: 20px 20px 20px 20px;
@@ -47,7 +47,7 @@ li {
 	padding: 7.5px 10px 7.5px 0px;
 }
 
-li a:hover {
+.headerLi a:hover {
 	color: #ccc;
 }
 
@@ -139,7 +139,7 @@ margin-bottom: 15px;
 		  }
 		
 	
-	input[type=submit] {
+	.submitButton[type=submit] {
 		width: 100%;
 		background-color: #4CAF50;
 		color: white;
@@ -150,7 +150,7 @@ margin-bottom: 15px;
 		cursor: pointer;
 	  }
 	  
-	  input[type=submit]:hover {
+	.submitButton[type=submit]:hover {
 		background-color: #45a049;
 	  }
 	  

@@ -58,7 +58,7 @@ $userId = $_SESSION['userId'];
             <input type="text" name="title" placeholder="Title of blog post"></input>
             <label for="content">Content</label>
             <textarea name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
-            <input type="submit" value="Submit"></input>
+            <input class="submitButton" type="submit" value="Submit"></input>
         </form>
     <main>
     <?php include("../includes/footer.php");?>
