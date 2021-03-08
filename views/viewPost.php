@@ -104,7 +104,11 @@ if (isset($_REQUEST['delete'])) {
                             <adress>By <?= $username ?></adress><time datetime='<?= $date ?>'><?= $date ?></time>
                             <a href='$category.php'><?= $category ?></a>
                         </aside>
-                        <img src='<?= $image ?>'class="post__img" alt='img' />
+
+                        <?php if (!empty($row['Image'])) { ?>
+
+                            <img src='<?= $image ?>' alt='img' style="width:150px; height:150px;" />
+                        <?php } ?>
                         <p class='post__content'><?= $content  ?></p>
                         <!--for editing and deleting post -->
                         <div class="btn-div">
@@ -130,7 +134,7 @@ if (isset($_REQUEST['delete'])) {
 
                     </article>
         </div>
-        <?php include ("../includes/footer.php");?>
+        <?php include("../includes/footer.php"); ?>
     </div>
 
 </body>
