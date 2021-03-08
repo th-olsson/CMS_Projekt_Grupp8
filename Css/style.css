@@ -264,7 +264,11 @@ margin-bottom: 15px;
 	.handlePostForm {
 		display: flex;
 		flex-direction: column;
+
+		
 	}
+
+
 
 	.postClass {
 		padding-bottom: 60px;

@@ -44,20 +44,17 @@ $userId = $_SESSION['userId'];
         
         <form class="handlePostForm" action="handlePost.php" method="post" enctype="multipart/form-data">
             <?php//Readonly inputs may be changed to hidden?>
-            <label for="date">Current date</label>
-            <input type="text" name="date" readonly value="<?= $date ?>">
-            <label for=author>Author</label>
-            <input type="text" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
-            <label for="userId">ID</label>
-            <input type="text" name="userId" readonly value="<?= $_SESSION['userId'] ?>"></input>
-            <label for="category">Category</label>
-            <input type="text" name="category" placeholder="Category of blog post"></input>
-            <label for="image">Image URL</label>
-            <input type="file" name="imageToUpload"> </input>
-            <label for="title">Title</label>
-            <input type="text" name="title" placeholder="Title of blog post"></input>
-            <label for="content">Content</label>
-            <textarea name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
+            <input type="hidden" name="date" readonly value="<?= $date ?>">
+            <input type="hidden" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
+            <input type="hidden" name="userId" readonly value="<?= $_SESSION['userId'] ?>"></input>
+            <label class="postLabels" for="category">Category</label>
+            <input class=" categoryInput" type="text" name="category" placeholder="Category of blog post"></input>
+            <label class="postLabels" for="image">Image URL</label>
+            <input class=" imgInput" type="file" name="imageToUpload"> </input>
+            <label  class="postLabels" for="title">Title</label>
+            <input class=" titleInput" type="text" name="title" placeholder="Title of blog post"></input>
+            <label  class="postLabels" for="content">Content</label>
+            <textarea class=" contentInput" name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
             <input class="submitButton" type="submit" value="Submit"></input>
         </form>
     <main>
