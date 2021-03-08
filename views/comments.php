@@ -43,7 +43,7 @@ $post[$i]->createPostHtml();
     <?php #Print comments for current post from database.
     //Get Username of commenter, ID, Date, Content, where PostID = $postId
     $sql = "SELECT u.Username, c.ID, c.Date, c.Content FROM comments as c 
-    JOIN users as u ON u.ID = c.UserID WHERE PostId = :postId_IN";
+    JOIN users as u ON u.ID = c.UserID WHERE PostId = :postId_IN ORDER BY c.ID DESC";
     $stm = $db->prepare($sql);
     $stm->bindParam(":postId_IN", $postId);
     $stm->execute();
