@@ -104,10 +104,10 @@ if (isset($_REQUEST['delete'])) {
                             <adress>By <?= $username ?></adress><time datetime='<?= $date ?>'><?= $date ?></time>
                             <a href='$category.php'><?= $category ?></a>
                         </aside>
-                        <img src='<?= $image ?>' alt='img' />
+                        <img src='<?= $image ?>'class="post__img" alt='img' />
                         <p class='post__content'><?= $content  ?></p>
                         <!--for editing and deleting post -->
-                        <div>
+                        <div class="btn-div">
                             <button class='edit-btn'>
                                 <a href='editPost.php?id=<?= $id; ?>'>Edit</a> </button>
 
