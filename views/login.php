@@ -39,7 +39,7 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
                     <label for="password">Password</label>
                     <input type="password" name="password" class="password" id="password">
                 </div>
-                    <input type="submit" value="LOGIN">
+                    <input class="submitButton" type="submit" value="LOGIN">
                     <p>Not registered? <a class="registerLink " href="register.php">Create an account</a></p>
             </div>
         </form>

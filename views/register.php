@@ -44,7 +44,7 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" class="password" id="password">
                 </div>
-                <input type="submit" value="Submit">
+                <input class="submitButton" type="submit" value="Submit">
                 <p>Already a user? <a class="registerLink " href="login.php">Login</a></p>
 
             </div>

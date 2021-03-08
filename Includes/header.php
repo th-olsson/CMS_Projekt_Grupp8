@@ -10,8 +10,7 @@
             <li class="headerLi"><a class=headerLinks href="#about">About Millhouse</a></li>
             <?php
             if (!isset($_SESSION['is_Login'])) { ?>
-class=headerLinks
-                <li class="headerLi"><a  href="/CMS_Projekt_Grupp8/views/login.php">Login</a></li>
+                <li class="headerLi"><a class=headerLinks  href="/CMS_Projekt_Grupp8/views/login.php">Login</a></li>
                 <li class="headerLi"><a class=headerLinks href="/CMS_Projekt_Grupp8/views/register.php">Register</a></li>
             <?php  } ?>
 
