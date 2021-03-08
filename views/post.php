@@ -30,7 +30,7 @@ $userId = $_SESSION['userId'];
     <title>Create Post</title>
 </head>
 
-<body>
+<body class="postClass">
     <?php include("../includes/header.php"); ?>
     <main class="container">
         <h1>Create a post</h1>
