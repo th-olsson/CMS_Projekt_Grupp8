@@ -1,14 +1,11 @@
 <?php
 include('../includes/database.php');
-session_start();
+session_start(); ?>
 
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = "";
-}
+<?php
 
-if (isset($action) && $action == "update") {
+
+if (isset($_FILES['imageToReplace']) && (!empty($_FILES['imageToReplace']))) {
 
     $upload_dir = "uploads/";
     $target_file = $upload_dir . basename($_FILES['imageToReplace']['name']); //function basename helps in creating the format required for different OS
@@ -36,31 +33,49 @@ if (isset($action) && $action == "update") {
         echo "you can only upload png, , gif, jpg & jpeg format";
         die();
     }
-
-
     if (move_uploaded_file($_FILES['imageToReplace']['tmp_name'], $target_file)) {
-
-        //echo $target_file;
-
-        $sql = "UPDATE posts SET Category=:category_IN, Image=:image_IN, Title=:title_IN , Content=:content_IN WHERE ID=:id_IN";
-
+        $sql = 'UPDATE posts SET Image=:image_IN WHERE ID=:id_IN';
         $stm = $db->prepare($sql);
-        $stm->bindParam(":category_IN", $_POST['category']);
-        $stm->bindParam(":image_IN", $target_file);
-        $stm->bindParam("title_IN", $_POST['title']);
-        $stm->bindParam(":content_IN", $_POST['content']);
+        $stm->bindParam(':image_IN', $target_file);
         $stm->bindParam(":id_IN", $_POST['ID']);
         if ($stm->execute()) {
-
-            header("location:viewPost.php?info=updated");
+            echo "your image has been successfully added to the database";
         } else {
-            echo "Något gick fel!";
-            die();
+
+            echo "something went wrong with image upload";
         }
-    } else {
-        echo "Something went wrong with image upload!";
     }
 }
+
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+} else {
+    $action = "";
+}
+
+if (isset($action) && $action == "update") {
+
+
+    $sql2 = "UPDATE posts SET Category=:category_IN, Title=:title_IN , Content=:content_IN WHERE ID=:id_IN";
+
+    $stm2 = $db->prepare($sql2);
+    $stm2->bindParam(":category_IN", $_POST['category']);
+    $stm2->bindParam("title_IN", $_POST['title']);
+    $stm2->bindParam(":content_IN", $_POST['content']);
+    $stm2->bindParam(":id_IN", $_POST['ID']);
+    if ($stm2->execute()) {
+
+        header("location:viewPost.php?info=updated");
+    } else {
+        echo "Något gick fel!";
+        die();
+    }
+}
+
+
+//echo $target_file;
+
+
 
 #Variables
 $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
@@ -121,4 +136,5 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
     </form>
 
 </body>
+
 </html>
