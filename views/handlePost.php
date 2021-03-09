@@ -41,13 +41,12 @@ if (isset($_FILES['imageToUpload'])) {
         $userId = $_POST['userId'];
     
         //SQL - insert data from $_POST to posts-table
-        $sql = 'INSERT INTO posts (Date, UserID, Category, Image, Title, Content) VALUES (:date_IN, :userId_IN, :category_IN, :image_IN, :title_IN, :content_IN)';
+        $sql = 'INSERT INTO posts (Date, UserID, Category, Title, Content) VALUES (:date_IN, :userId_IN, :category_IN, :title_IN, :content_IN)';
     
         $stm = $db->prepare($sql);
         $stm->bindParam(':date_IN', $date);
         $stm->bindParam(':userId_IN', $userId);
         $stm->bindParam(':category_IN', $category);
-        $stm->bindParam(':image_IN', $target_file);
         $stm->bindParam(':title_IN', $title);
         $stm->bindParam(':content_IN', $content);
     
