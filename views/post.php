@@ -32,16 +32,16 @@ $userId = $_SESSION['userId'];
 
 <body class="postClass">
     <?php include("../includes/header.php"); ?>
-    <main class="container">
-        <h1>Create a post</h1>
-        
-        <!--Display error here-->
-        <?php if (isset($_GET['error'])) { ?>
-            <p class="error"><?php echo $_GET['error']; ?> </p>
-        <?php } ?>
-
-        <?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Image URL', 'Title' and 'Content'?>
+    <main>
         <div class="content2">
+            <h1>Create a post</h1>
+        
+            <!--Display error here-->
+            <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?php echo $_GET['error']; ?> </p>
+            <?php } ?>
+
+            <?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Image URL', 'Title' and 'Content'?>
             <form class="handlePostForm" action="handlePost.php" method="post" enctype="multipart/form-data">
                 <?php//Readonly inputs may be changed to hidden?>
                 <label class="postLabels" for="category">Category</label>
@@ -54,7 +54,7 @@ $userId = $_SESSION['userId'];
                 <label  class="postLabels" for="content">Content</label>
                 <br>
                 <textarea class=" contentInput" name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
-                <input class="submitButton" type="submit" value="Submit"></input>
+                <input class="postSubmit" type="submit" value="Submit"></input>
                 <input type="hidden" name="date" readonly value="<?= $date ?>">
                 <input type="hidden" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
                 <input type="hidden" name="userId" readonly value="<?= $_SESSION['userId'] ?>"></input>

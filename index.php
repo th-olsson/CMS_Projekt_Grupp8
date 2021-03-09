@@ -48,10 +48,10 @@
         <div class="content">
             <h2 class="content-title">Recent Articles</h2>
             <hr>
-
+        
         <?php include("includes/printPosts.php")?>
         <!-- // Page content -->
-
+        </div>
     </main>
     <?php include("includes/footer.php");?>
 </body>

@@ -20,7 +20,7 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
 
 </head>
 
-<body>
+<body class="postClass">
     <?php include("../includes/header.php");?>
     <main class=container>
         <form method="POST" action="handleLogin.php">

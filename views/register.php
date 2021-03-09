@@ -12,7 +12,7 @@
     <title>Registration</title>
 </head>
 
-<body>
+<body class="postClass">
     <?php include("../includes/header.php"); ?>
     <main class="container">
         <form method="POST" action="handleSignUp.php">
