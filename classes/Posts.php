@@ -20,16 +20,12 @@ class Post {
         $this->username = $username_IN;
     }
 
-    // private $posts = [];
-
-    // private $comments = [];
-
     function createPostHtml(){
 
         echo "<article class='post' id='$this->id'>";
         echo "<h3 class='post__title'>$this->title</h3>";
         echo "<aside class='post__meta'><adress>By $this->username</adress><time datetime='$this->date'>$this->date</time><a href='$this->category'>$this->category</a></aside>";
-        echo "<img src='$this->image' alt='img' />";
+        echo "<img src='/CMS_Projekt_Grupp8/views/$this->image' alt='img' />";
         echo "<p class='post__content'>$this->content</p>";
 
         //Condition: print links to comments if on index.php, print comments and form to comment if on comments.php
