@@ -1,7 +1,7 @@
 <header class="navbar">
     <div class="logo_div">
         <a class=headerLinks href="/CMS_Projekt_Grupp8/index.php">
-            <h1>Millhouse</h1>
+            <h1 class="h1Header">Millhouse</h1>
         </a>
     </div>
     <nav>
