@@ -24,7 +24,7 @@ class Post {
 
         echo "<article class='post' id='$this->id'>";
         echo "<h3 class='post__title'>$this->title</h3>";
-        echo "<aside class='post__meta'><adress>By $this->username</adress><time datetime='$this->date'>$this->date</time><a href='$this->category'>$this->category</a></aside>";
+        echo "<aside class='post__meta'><adress>By $this->username</adress><time datetime='$this->date'>$this->date</time><a href='/CMS_Projekt_Grupp8/index.php?category=$this->category'>$this->category</a></aside>";
         echo "<img src='/CMS_Projekt_Grupp8/views/$this->image' alt='img' />";
         echo "<p class='post__content'>$this->content</p>";
 
