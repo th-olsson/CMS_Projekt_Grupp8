@@ -12,5 +12,5 @@ The project uses PHP with MySQL DB connection, runs on localhost server, and the
 3.	Now you can access the blog site project by entering the URL localhost/CMS_Projekt-Grupp8/ in your browser.
 4.	Enjoy testing the functionalities of the blog system. To log in as admin, use the following login details:
     - Username: admin, Password: admin
-## Developers the project
+## Developers of the project
 The developers who have participated in this project are [jyoti-nambiar](https://github.com/jyoti-nambiar), [Rasmuskrogh](https://github.com/Rasmuskrogh), and [th-olsson](https://github.com/th-olsson).
