@@ -10,7 +10,10 @@ The project uses PHP with MySQL DB connection, runs on localhost server, and the
 1.	Clone the repository to the default Apache root directory (e.g. C:\xampp\htdocs). Alternatively, download ZIP of the project and unzip the project folder there. Check so that the folder name is CMS_Projekt_Grupp8 and not CMS_Projekt_Grupp8-main, otherwise change it to the former.
 2.	To create the database needed, execute the SQL-code of CreateBlog.sql inside your database management tool (like phpMyAdmin or MySQL Workbench).
 3.	Now you can access the blog site project by entering the URL localhost/CMS_Projekt-Grupp8/ in your browser.
-4.	Enjoy testing the functionalities of the blog system. To log in as admin, use the following login details:
-    - Username: admin, Password: admin
+4.	Enjoy testing the functionalities of the blog system. To log in with either of our two existing users of different roles, the login details are the following:
+    ID|Username     | Password     | Role
+    --|------------ | -------------|-------------
+    1 |admin        | admin        | admin
+    2 |user         | user         | user
 ## Developers of the project
 The developers who have participated in this project are [jyoti-nambiar](https://github.com/jyoti-nambiar), [Rasmuskrogh](https://github.com/Rasmuskrogh), and [th-olsson](https://github.com/th-olsson).
