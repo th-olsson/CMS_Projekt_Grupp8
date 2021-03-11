@@ -16,10 +16,6 @@
 
             <?php
             if (@$_SESSION['role'] == "admin") { ?> <li class="headerLi"><a class=headerLinks href="/CMS_Projekt_Grupp8/views/post.php">Create new Post</a></li>
-
-                <li class="headerLi"><a class=headerLinks href="/CMS_Projekt_Grupp8/views/viewPost.php">Edit Post</a></li>
-
-
             <?php } ?>
 
             <?php //If any user is logged in, display 'logout'
