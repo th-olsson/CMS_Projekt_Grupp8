@@ -1,5 +1,6 @@
 <?php
 include('../includes/database.php');
+//checking for empty fields
 if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['email'])) {
 
     if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
@@ -8,13 +9,10 @@ if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['
         $username = $_POST['username'];
         $userpassword = $_POST['password'];
         $salt = "asdkmpäöl8234-23439*¨¨^?#=)€++98";
-        $userpassword = md5($userpassword . $salt);
+        $userpassword = md5($userpassword . $salt); //password encrypted
 
         $email = $_POST['email'];
-
-
-
-
+        //query to pull data from database to prevent duplication
         $sql_u = $db->prepare("SELECT * FROM users WHERE Email=:email_IN OR Username=:username_IN ");
         $sql_u->bindParam(":email_IN", $email);
         $sql_u->bindParam(":username_IN", $username);
@@ -36,10 +34,10 @@ if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['
             $stm->bindParam(':password_IN', $userpassword);
 
             if ($stm->execute()) {
-                header("location:../index.php");
+                header("location:login.php");
             }
         }
     }
 } else {
-    header('location:register.php?error=Please fill in all data');
+    header('location:register.php?error=Please fill in all data'); //Redirected to register page if all fields are not filled
 }
