@@ -9,7 +9,7 @@ The essential features of the blog site should be that:
 The project uses PHP with MySQL DB connection, runs on localhost server, and therefore needs an AMP software stack such as XAMPP installed to work. Once installed, start Apache and MySQL then proceed to the following steps:
 1.	Clone the repository to the default Apache root directory (e.g. C:\xampp\htdocs). Alternatively, download ZIP of the project and unzip the project folder there. Check so that the folder name is CMS_Projekt_Grupp8 and not CMS_Projekt_Grupp8-main, otherwise change it to the former.
 2.	To create the database needed, execute the SQL-code of CreateBlog.sql inside your database management tool (like phpMyAdmin or MySQL Workbench).
-3.	Now you can access the blog site project by entering the URL localhost/CMS_Projekt_Grupp8/ in your browser.
+3.	Now you can access the blog site project by entering the URL localhost/CMS_Projekt_Grupp8/index.php in your browser.
 4.	Enjoy testing the functionalities of the blog system. To log in with either of our two existing users of different roles, the login details are the following:
     ID|Username     | Password     |
     --|------------ | -------------|
