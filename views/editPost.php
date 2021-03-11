@@ -16,7 +16,7 @@ if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
 <?php
 
 
-if (isset($_FILES['imageToReplace']) && (!empty($_FILES['imageToReplace']))) {
+if (isset($_FILES['imageToReplace']) && (!empty($_FILES['imageToReplace']['name']))) {
 
     $upload_dir = "uploads/";
     $target_file = $upload_dir . basename($_FILES['imageToReplace']['name']); //function basename helps in creating the format required for different OS
@@ -87,11 +87,6 @@ if (isset($action) && $action == "update") {
         die();
     }
 }
-
-
-//echo $target_file;
-
-
 
 #Variables
 $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
