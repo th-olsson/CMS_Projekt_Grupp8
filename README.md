@@ -11,9 +11,9 @@ The project uses PHP with MySQL DB connection, runs on localhost server, and the
 2.	To create the database needed, execute the SQL-code of CreateBlog.sql inside your database management tool (like phpMyAdmin or MySQL Workbench).
 3.	Now you can access the blog site project by entering the URL localhost/CMS_Projekt-Grupp8/ in your browser.
 4.	Enjoy testing the functionalities of the blog system. To log in with either of our two existing users of different roles, the login details are the following:
-    ID|Username     | Password     | Role
-    --|------------ | -------------|-------------
-    1 |admin        | admin        | admin
-    2 |user         | user         | user
+    Username     | Password     |
+    ------------ | -------------|
+    admin        | admin        |
+    user         | user         |
 ## Developers of the project
 The developers who have participated in this project are [jyoti-nambiar](https://github.com/jyoti-nambiar), [Rasmuskrogh](https://github.com/Rasmuskrogh), and [th-olsson](https://github.com/th-olsson).
