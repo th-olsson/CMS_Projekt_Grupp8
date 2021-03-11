@@ -92,49 +92,57 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
+    <main class="container">
+        <?php include("../includes/header.php"); ?>
+        <div class="content2">
+            <h1 class="postHeader">Edit Post</h1>
 
-    <h1>Edit Post</h1>
+            <?php
+            $stm = $db->prepare("SELECT Category, Image, Title, Content FROM posts WHERE id=:id_IN");
 
-    <?php
-    $stm = $db->prepare("SELECT Category, Image, Title, Content FROM posts WHERE id=:id_IN");
+            $stm->bindParam(":id_IN", $_GET['id']);
 
-    $stm->bindParam(":id_IN", $_GET['id']);
+            $success = $stm->execute();
+            $postData = $stm->fetch();
+            //print_r($postData);
 
-    $success = $stm->execute();
-    $postData = $stm->fetch();
-    //print_r($postData);
+            if (!$success) {
+                echo "<h3>Något gick fel!</h3>";
+                die();
+            }
 
-    if (!$success) {
-        echo "<h3>Något gick fel!</h3>";
-        die();
-    }
-
-    ?>
-    <form action="editPost.php?action=update" method="post" enctype="multipart/form-data">
-        <?php//Readonly inputs may be changed to hidden
-        ?>
-        <input type="hidden" name="ID" value="<?= $_GET['id']; ?>" />
-        <label for="date">Current date</label>
-        <input type="text" name="date" readonly value="<?= $date ?>">
-        <label for=author>Author</label>
-        <input type="text" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
-        <label for="userId">ID</label>
-        <input type="text" name="userId" value="<?= $_SESSION['userId'] ?>"></input>
-        <label for="category">Category</label>
-        <input type="text" name="category" value="<?= $postData['Category']; ?>" placeholder="Category of blog post"></input>
-        <label for="image">Image URL</label>
-        <input type="file" name="imageToReplace"> </input>
-        <label for="title">Title</label>
-        <input type="text" name="title" value="<?= $postData['Title'];    ?>" placeholder="Title of blog post"></input>
-        <label for="content">Content</label>
-        <textarea name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."><?= $postData['Content']; ?></textarea>
-        <input type="submit" value="update" />
-    </form>
-
+            ?>
+            <form action="editPost.php?action=update" method="post" enctype="multipart/form-data">
+                <?php//Readonly inputs may be changed to hidden
+                ?>
+                <input type="hidden" name="ID" value="<?= $_GET['id']; ?>" />
+                <input type="hidden" name="date" readonly value="<?= $date ?>">
+                <input type="hidden" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
+                <input type="hidden" name="userId" value="<?= $_SESSION['userId'] ?>"></input>
+                <label class="postLabels" for="category">Category</label>
+                <input class="categoryInput" type="text" name="category" value="<?= $postData['Category']; ?>" placeholder="Category of blog post"></input>
+                <label class="postLabels" for="image">Image URL</label>
+                <input class=" imgInput" type="file" name="imageToReplace"> </input>
+                <label class="postLabels" for="title">Title</label>
+                <input class=" titleInput" type="text" name="title" value="<?= $postData['Title'];    ?>" placeholder="Title of blog post"></input>
+                <br>
+                <label class="postLabels" for="content">Content</label>
+                <br>
+                <textarea class=" contentInput" name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."><?= $postData['Content']; ?></textarea>
+                <br>
+                <input class="postSubmit" type="submit" value="update" />
+            </form>
+        </div>
+    </main>    
 </body>
 
 </html>
