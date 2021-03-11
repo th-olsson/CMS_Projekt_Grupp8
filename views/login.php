@@ -1,4 +1,5 @@
 <?php
+//prevent injection login to this page, if user has logged in already
 session_start();
 if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
     header('location:../index.php');
@@ -22,7 +23,7 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
 </head>
 
 <body class="postClass">
-    <?php include("../includes/header.php");?>
+    <?php include("../includes/header.php"); ?>
     <main class=container>
         <form method="POST" action="handleLogin.php">
             <div class="formValidator" id="login">
@@ -40,11 +41,12 @@ if (isset($_SESSION['role']) == "admin" || isset($_SESSION['role']) == "user") {
                     <label for="password">Password</label>
                     <input type="password" name="password" class="password" id="password">
                 </div>
-                    <input class="submitButton" type="submit" value="LOGIN">
-                    <p>Not registered? <a class="registerLink " href="register.php">Create an account</a></p>
+                <input class="submitButton" type="submit" value="LOGIN">
+                <p>Not registered? <a class="registerLink " href="register.php">Create an account</a></p>
             </div>
         </form>
     </main>
-    <?php include("../includes/footer.php");?>
+    <?php include("../includes/footer.php"); ?>
 </body>
+
 </html>
