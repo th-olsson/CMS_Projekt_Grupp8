@@ -61,14 +61,16 @@ if (isset($_FILES['imageToReplace']) && (!empty($_FILES['imageToReplace']))) {
 }
 
 
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+} else {
+    $action = "";
+}
+
 if (isset($action) && $action == "update") {
 
 
-    if (isset($_GET['action'])) {
-        $action = $_GET['action'];
-    } else {
-        $action = "";
-    }
+
 
     $sql2 = "UPDATE posts SET Category=:category_IN, Title=:title_IN , Content=:content_IN WHERE ID=:id_IN";
 
@@ -156,7 +158,7 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
                 <input class="postSubmit" type="submit" value="update" />
             </form>
         </div>
-    </main>    
+    </main>
 </body>
 
 </html>
