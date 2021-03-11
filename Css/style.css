@@ -25,9 +25,11 @@ body {
 
 
 .headerUl {
+	font-size: 23px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
+	font-family: 'Dancing Script';
 }
 
 .headerLinks {
@@ -187,6 +189,7 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		font-family: 'Shippori Mincho B1', serif;
 }
 
 	.content2 {
@@ -211,7 +214,7 @@ body {
 
 	.post__img {
 		order: 1;
-		
+		max-width:250px;
 	}
 
 	.post__content {
@@ -260,12 +263,13 @@ body {
 	}
 
 	.imgInput {
-		width: 150px;
+		width: 160px;
         height: 35px;
 	}
 
 	.contentInput {
 		width: 100%;
+		max-width: 703px;
 	}
 
 	.postSubmit {
@@ -281,3 +285,13 @@ body {
 	.postSubmit[type=submit]:hover {
 		background-color: #45a049;
 	  }
+
+	.postHeader {
+		padding-top: 20px;
+		padding-bottom: 15px;
+	}
+
+	.h1Header {
+		font-family: 'Dancing Script', cursive;
+		font-size: 50px;
+	}

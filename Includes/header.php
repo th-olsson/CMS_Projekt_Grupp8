@@ -1,7 +1,7 @@
 <header class="navbar">
     <div class="logo_div">
         <a class=headerLinks href="/CMS_Projekt_Grupp8/index.php">
-            <h1>Millhouse</h1>
+            <h1 class="h1Header">Millhouse</h1>
         </a>
     </div>
     <nav>
@@ -25,7 +25,6 @@
             <!--Create post is visible only to user with role admin-->
             <?php
             if (@$_SESSION['role'] == "admin") { ?> <li class="headerLi"><a class=headerLinks href="/CMS_Projekt_Grupp8/views/post.php">Create new Post</a></li>
-
             <?php } ?>
 
             <?php //If any user is logged in, display 'logout'

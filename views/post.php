@@ -28,6 +28,8 @@ $userId = $_SESSION['userId'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <title>Create Post</title>
 </head>
 
@@ -35,7 +37,7 @@ $userId = $_SESSION['userId'];
     <?php include("../includes/header.php"); ?>
     <main>
         <div class="content2">
-            <h1>Create a post</h1>
+            <h1 class="postHeader">Create a post</h1>
 
             <!--Display error here-->
             <?php if (isset($_GET['error'])) { ?>
@@ -54,7 +56,8 @@ $userId = $_SESSION['userId'];
                 <br>
                 <label class="postLabels" for="content">Content</label>
                 <br>
-                <textarea class=" contentInput" name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
+                <textarea class=" contentInput" name="content" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
+                <br>
                 <input class="postSubmit" type="submit" value="Submit"></input>
                 <input type="hidden" name="date" readonly value="<?= $date ?>">
                 <input type="hidden" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
