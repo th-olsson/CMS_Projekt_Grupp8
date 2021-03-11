@@ -5,7 +5,7 @@ session_start(); ?>
 <?php
 
 
-if (isset($_FILES['imageToReplace']) && (!empty($_FILES['imageToReplace']))) {
+if (isset($_FILES['imageToReplace']) && (!empty($_FILES['imageToReplace']['name']))) {
 
     $upload_dir = "uploads/";
     $target_file = $upload_dir . basename($_FILES['imageToReplace']['name']); //function basename helps in creating the format required for different OS
@@ -72,11 +72,6 @@ if (isset($action) && $action == "update") {
     }
 }
 
-
-//echo $target_file;
-
-
-
 #Variables
 $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
 
@@ -115,15 +110,7 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
 
     ?>
     <form action="editPost.php?action=update" method="post" enctype="multipart/form-data">
-        <?php//Readonly inputs may be changed to hidden
-        ?>
-        <input type="hidden" name="ID" value="<?= $_GET['id']; ?>" />
-        <label for="date">Current date</label>
-        <input type="text" name="date" readonly value="<?= $date ?>">
-        <label for=author>Author</label>
-        <input type="text" name="author" readonly value="<?= $_SESSION['username'] ?>"></input>
-        <label for="userId">ID</label>
-        <input type="text" name="userId" value="<?= $_SESSION['userId'] ?>"></input>
+
         <label for="category">Category</label>
         <input type="text" name="category" value="<?= $postData['Category']; ?>" placeholder="Category of blog post"></input>
         <label for="image">Image URL</label>
@@ -133,6 +120,10 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
         <label for="content">Content</label>
         <textarea name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."><?= $postData['Content']; ?></textarea>
         <input type="submit" value="update" />
+        <input type="hidden" name="ID" value="<?= $_GET['id']; ?>" />
+        <input type="hidden" name="date" readonly value="<?= $date ?>">
+        <input type="hidden" name="author" value="<?= $_SESSION['username'] ?>"></input>
+        <input type="hidden" name="userId" value="<?= $_SESSION['userId'] ?>"></input>
     </form>
 
 </body>
