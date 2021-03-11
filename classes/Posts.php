@@ -1,4 +1,7 @@
 <?php
+$path = $_SERVER['DOCUMENT_ROOT']; //Server document root path
+include($path . "/CMS_Projekt_Grupp8/includes/functions.php"); //Include functions.php
+
 class Post
 {
     private $id;
@@ -16,7 +19,7 @@ class Post
         $this->title = $title_IN;
         $this->image = $image_IN;
         $this->category = $category_IN;
-        $this->content = $content_IN;
+        $this->content = escape($content_IN);
         $this->date = $date_IN;
         $this->userId = $userId_IN;
         $this->username = $username_IN;
