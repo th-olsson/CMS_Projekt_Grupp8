@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +14,10 @@
 
 <body>
     <main class="container">
-    <?php include("includes/header.php"); ?>
+        <?php include("includes/header.php"); ?>
 
-    <?php //If post has been edited or deleted, show message
-    if (isset($_GET['info'])) {
+        <?php //If post has been edited or deleted, show message
+        if (isset($_GET['info'])) {
             if ($_GET['info'] == "updated") { //on index.php/?info=updated
                 echo "<div class='success'> The data has been updated </div>";
             }
@@ -28,31 +29,32 @@
             }
         } ?>
 
-    <?php //On clicking delete button, remove post from database and redirect to index.php/?info=deleted
-    if (isset($_REQUEST['delete'])) {
-        $id = $_POST['ID'];
-        $sql = "DELETE FROM posts WHERE ID=:id_IN";
-        $stm = $db->prepare($sql);
-        $stm->bindParam(":id_IN", $id);
-        if ($stm->execute()) {
+        <?php //On clicking delete button, remove post from database and redirect to index.php/?info=deleted
+        if (isset($_REQUEST['delete'])) {
+            $id = $_POST['ID'];
+            $sql = "DELETE FROM posts WHERE ID=:id_IN";
+            $stm = $db->prepare($sql);
+            $stm->bindParam(":id_IN", $id);
+            if ($stm->execute()) {
 
-            header("location:index.php?info=deleted");
-        } else {
-            echo "Något gick fel!";
-            die();
+                header("location:index.php?info=deleted");
+            } else {
+                echo "Något gick fel!";
+                die();
+            }
         }
-    }
-    ?>
+        ?>
 
-       <!-- Page content -->
+        <!-- Page content -->
         <div class="content">
             <h2 class="content-title">Recent Articles</h2>
             <hr>
-        
-        <?php include("includes/printPosts.php")?>
-        <!-- // Page content -->
+
+            <?php include("includes/printPosts.php") ?>
+            <!-- // Page content -->
         </div>
     </main>
-    <?php include("includes/footer.php");?>
+    <?php include("includes/footer.php"); ?>
 </body>
+
 </html>

@@ -39,17 +39,17 @@ if (isset($_FILES['imageToUpload'])) {
         $title = $_POST['title'];
         $content = $_POST['content'];
         $userId = $_POST['userId'];
-    
+
         //SQL - insert data from $_POST to posts-table
         $sql = 'INSERT INTO posts (Date, UserID, Category, Title, Content) VALUES (:date_IN, :userId_IN, :category_IN, :title_IN, :content_IN)';
-    
+
         $stm = $db->prepare($sql);
         $stm->bindParam(':date_IN', $date);
         $stm->bindParam(':userId_IN', $userId);
         $stm->bindParam(':category_IN', $category);
         $stm->bindParam(':title_IN', $title);
         $stm->bindParam(':content_IN', $content);
-    
+
         if ($stm->execute()) {
             echo "your data has been successfully added to the database";
             header('location:../index.php');
@@ -84,15 +84,13 @@ if (isset($_FILES['imageToUpload'])) {
         if ($stm->execute()) {
             echo "your data has been successfully added to the database";
             header('location:../index.php');
-            echo '<a href="post.php">go back</a>';
         } else {
             echo "something went wrong with data-uploading in database";
             echo '<a href="post.php">go back</a>';
         }
     }
-//If Image isn't set, insert all other values to database
+    //If Image isn't set, insert all other values to database
 } else {
     echo "something went wrong with data-uploading in database";
     echo '<a href="post.php">go back</a>';
 }
-?>

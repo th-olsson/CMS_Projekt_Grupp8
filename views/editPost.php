@@ -1,6 +1,17 @@
 <?php
 include('../includes/database.php');
-session_start(); ?>
+session_start();
+if (!(isset($_SESSION['is_Login']))) {
+    header('location:login.php');
+    die();
+}
+//prevent injection login to this page, if logged in user is not admin
+if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
+    header('location:../index.php');
+    die();
+}
+
+?>
 
 <?php
 
@@ -33,13 +44,15 @@ if (isset($_FILES['imageToReplace']) && (!empty($_FILES['imageToReplace']))) {
         echo "you can only upload png, , gif, jpg & jpeg format";
         die();
     }
+
+
     if (move_uploaded_file($_FILES['imageToReplace']['tmp_name'], $target_file)) {
         $sql = 'UPDATE posts SET Image=:image_IN WHERE ID=:id_IN';
         $stm = $db->prepare($sql);
         $stm->bindParam(':image_IN', $target_file);
         $stm->bindParam(":id_IN", $_POST['ID']);
         if ($stm->execute()) {
-            echo "your image has been successfully added to the database";
+            header('location:../index.php?info=updated');
         } else {
 
             echo "something went wrong with image upload";
@@ -47,14 +60,15 @@ if (isset($_FILES['imageToReplace']) && (!empty($_FILES['imageToReplace']))) {
     }
 }
 
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = "";
-}
 
 if (isset($action) && $action == "update") {
 
+
+    if (isset($_GET['action'])) {
+        $action = $_GET['action'];
+    } else {
+        $action = "";
+    }
 
     $sql2 = "UPDATE posts SET Category=:category_IN, Title=:title_IN , Content=:content_IN WHERE ID=:id_IN";
 
@@ -65,7 +79,7 @@ if (isset($action) && $action == "update") {
     $stm2->bindParam(":id_IN", $_POST['ID']);
     if ($stm2->execute()) {
 
-        header("location:viewPost.php?info=updated");
+        header("location:../index.php?info=updated");
     } else {
         echo "Något gick fel!";
         die();

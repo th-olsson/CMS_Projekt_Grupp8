@@ -1,10 +1,11 @@
 <?php
-
+//prevent injection login to this page, if user has not logged in
 session_start();
 if (!(isset($_SESSION['is_Login']))) {
     header('location:login.php');
     die();
 }
+//prevent injection login to this page, if logged in user is not admin
 if (($_SESSION['is_Login']) && $_SESSION['role'] !== 'admin') {
     header('location:../index.php');
     die();
@@ -35,10 +36,10 @@ $userId = $_SESSION['userId'];
     <main>
         <div class="content2">
             <h1>Create a post</h1>
-        
+
             <!--Display error here-->
             <?php if (isset($_GET['error'])) { ?>
-            <p class="error"><?php echo $_GET['error']; ?> </p>
+                <p class="error"><?php echo $_GET['error']; ?> </p>
             <?php } ?>
 
             <?php//Form to send data of 'Date', 'Author', 'UserID', 'Category', 'Image URL', 'Title' and 'Content'?>
@@ -48,10 +49,10 @@ $userId = $_SESSION['userId'];
                 <input class="categoryInput" type="text" name="category" placeholder="Category of blog post"></input>
                 <label class="postLabels" for="image">Image URL</label>
                 <input class=" imgInput" type="file" name="imageToUpload"> </input>
-                <label  class="postLabels" for="title">Title</label>
+                <label class="postLabels" for="title">Title</label>
                 <input class=" titleInput" type="text" name="title" placeholder="Title of blog post"></input>
                 <br>
-                <label  class="postLabels" for="content">Content</label>
+                <label class="postLabels" for="content">Content</label>
                 <br>
                 <textarea class=" contentInput" name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."></textarea>
                 <input class="postSubmit" type="submit" value="Submit"></input>
@@ -60,8 +61,8 @@ $userId = $_SESSION['userId'];
                 <input type="hidden" name="userId" readonly value="<?= $_SESSION['userId'] ?>"></input>
             </form>
         </div>
-    <main>
-    <?php include("../includes/footer.php");?>
+        <main>
+            <?php include("../includes/footer.php"); ?>
 </body>
 
 </html>
