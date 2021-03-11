@@ -65,7 +65,7 @@ if (isset($action) && $action == "update") {
     $stm2->bindParam(":id_IN", $_POST['ID']);
     if ($stm2->execute()) {
 
-        header("location:viewPost.php?info=updated");
+        header("location:../index.php?info=updated");
     } else {
         echo "Något gick fel!";
         die();
