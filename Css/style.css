@@ -216,6 +216,7 @@ body {
 	.post__img {
 		order: 1;
 		max-width:90%;
+		width:200px;
 	}
 
 	.post__content {
@@ -223,6 +224,7 @@ body {
 		padding-top: 20px;
 		font-size: 16px;
 		white-space: pre-wrap;
+		width:80%;
 	}
 
 	.post__meta {
