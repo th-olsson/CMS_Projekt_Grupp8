@@ -4,7 +4,9 @@ This project is intended as a school assignment for students of Web development 
 The purpose of this project has been to develop a blog system at the request of a fictitious company called ‘Millhouse’ that they wish to use to communicate with their customers.
 The essential features of the blog site should be that:
 - Users can ***register*** and ***log in*** to gain rights to ***comment*** on blog posts.
-- Users with the ***role of admin*** have also the rights to ***create***, ***edit*** and ***delete*** blog posts
+- Users with the ***role of admin*** have also the rights to ***create***, ***edit*** and ***delete*** blog posts.
+
+Beside from the essential features, we have used safety precautions to prevent cross site scripting and we have implemented one-way password encryption to protect users' passwords in case of potential database leak.
 ## How to use the project
 The project uses PHP with MySQL DB connection, runs on localhost server, and therefore needs an AMP software stack such as XAMPP installed to work. Once installed, start Apache and MySQL then proceed to the following steps:
 1.	Clone the repository to the default Apache root directory (e.g. C:\xampp\htdocs). Alternatively, download ZIP of the project and unzip the project folder there. Check so that the folder name is CMS_Projekt_Grupp8 and not CMS_Projekt_Grupp8-main, otherwise change it to the former.
