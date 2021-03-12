@@ -222,6 +222,7 @@ body {
 		order: 2;
 		padding-top: 20px;
 		font-size: 16px;
+		white-space: pre-wrap;
 	}
 
 	.post__meta {
@@ -298,4 +299,9 @@ body {
 	.h1Header {
 		font-family: 'Dancing Script', cursive;
 		font-size: 50px;
+	}
+
+	/* Comment */
+	.comment__content {
+		white-space: pre-wrap;
 	}
