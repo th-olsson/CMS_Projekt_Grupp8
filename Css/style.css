@@ -216,7 +216,6 @@ body {
 	.post__img {
 		order: 1;
 		max-width:90%;
-		width:200px;
 	}
 
 	.post__content {
@@ -307,3 +306,30 @@ body {
 	.comment__content {
 		white-space: pre-wrap;
 	}
+	
+@media (max-width: 910px) {
+	.handlePostForm {
+		display: flex;
+		flex-direction: column;
+	}
+}
+	
+@media (max-width: 650px) {
+	.headerUl {
+		font-size: 23px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		font-family: 'Dancing Script';
+	}
+	.content-title {
+		align-self: flex-start;
+		padding: 5px 0px 10px 2px;
+		font-size: 25px;
+	}
+	.post__title {
+		order: 0;
+		padding-bottom: 30px;
+		font-size: 20px;
+	}
+}	
