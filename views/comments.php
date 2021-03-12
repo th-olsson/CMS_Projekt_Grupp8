@@ -29,7 +29,7 @@ $postId = $_GET['id'];
         <?php #Get post data from database
         include("../includes/database.php");
 
-        $stm = $db->prepare("SELECT p.ID, p.Title, p.Image, p.Category, p.Content, p.Date, p.UserId, u.Username FROM posts as p
+        $stm = $db->prepare("SELECT p.ID, p.Title, p.Image, p.Category, p.Content, p.Date, p.UserId, u.Username, (SELECT COUNT(*) FROM comments AS c WHERE c.PostId = p.Id) AS AmountComments FROM posts as p
         JOIN users as u ON u.Id=p.UserId WHERE p.ID = :ID_IN");
         $stm->bindParam(':ID_IN', $postId);
         $stm->execute();
@@ -39,7 +39,7 @@ $postId = $_GET['id'];
         #Creates new objects from Post-class and uses its method to create HTML-elements
         $row = $stm->fetch();
         $i = $row["ID"]; //Index for post-objects
-        $post[$i] = new Post($row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"], $row["Username"]);
+        $post[$i] = new Post($row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"], $row["Username"], $row["AmountComments"]);
         $post[$i]->createPostHtml();
         ?>
 
