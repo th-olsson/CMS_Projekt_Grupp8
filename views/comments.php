@@ -43,53 +43,27 @@ $postId = $_GET['id'];
         $post[$i]->createPostHtml();
         ?>
 
-        <section class="comment-section">
-            
-            <?php #Print comments for current post from database.
-            //Get Username of commenter, ID, Date, Content, where PostID = $postId
-            $sql = "SELECT u.Username, c.ID, c.Date, c.Content FROM comments as c 
-            JOIN users as u ON u.ID = c.UserID WHERE PostId = :postId_IN ORDER BY c.ID DESC";
-            $stm = $db->prepare($sql);
-            $stm->bindParam(":postId_IN", $postId);
-            $stm->execute();
+    <section class="comment-section">
+        
+    <?php include("../includes/printComments.php") ?>
 
-            while ($row = $stm->fetch()){
-                
-                ?>
-                
-
-
-                <article class="comment" id="<?=$row['ID']?>">
-                    <aside class="comment__meta"><adress><?=$row['Username']?><time datetime='<?=$row['Date']?>'><?=$row['Date']?></time></adress></aside>
-                    <p class="comment__content"><?=escape($row['Content'])?></p>
-                </article>
-                <?php if (isset($_SESSION['is_Login']) && $_SESSION['role'] == 'admin') { //If admin is logged in, add 'delete comment'-btn?>
-                <form action="handleComments.php" method="POST">
-                    <input type="hidden" name='ID' value="<?=$row['ID']?>" />
-                    <input type="hidden" name='postId' value="<?=$postId?>" />
-                    <button name="delete">Delete comment</button>
-                </form>
-                <?php } ?>
-            <?php } ?>
-
-            <?php //If logged in, print form to comment
-                if (isset($_SESSION['is_Login'])) {
-                $userId = $_SESSION['userId']; $date = date('Y-m-d'); ?>
-                <h3>Comment</h3>
-                <form action="handleComments.php" method="post">
-                    <input type="text" name="userId" hidden value="<?= $userId ?>"></input>
-                    <input type="text" name="date" hidden value="<?= $date ?>">
-                    <input type="text" name="postId" hidden value="<?= $postId ?>">
-                    <textarea name="content" cols="30" rows="10" placeholder="Write your comment.."></textarea>
-                    <br>
-                    <input class="postSubmit" type="submit" value="Send comment"></input>
-                </form>
-            <?php } else {  //If logged out, link to login page instead?>
-                <a href="login.php">Log in to comment</a>
-            <?php  } ?>
-
+    <?php //If logged in, print form to comment
+        if (isset($_SESSION['is_Login'])) {
+        $userId = $_SESSION['userId']; $date = date('Y-m-d'); ?>
+        <h3>Comment</h3>
+        <form action="handleComments.php" method="post">
+            <input type="text" name="userId" hidden value="<?= $userId ?>"></input>
+            <input type="text" name="date" hidden value="<?= $date ?>">
+            <input type="text" name="postId" hidden value="<?= $postId ?>">
+            <textarea name="content" cols="30" rows="10" placeholder="Write your comment.."></textarea>
+            <br>
+            <input class="postSubmit" type="submit" value="Send comment"></input>
+        </form>
+    <?php } else {  //If logged out, link to login page instead?>
+        <a href="login.php">Log in to comment</a>
+    <?php } ?>
     </div>
-</section>
+    </section>
 
 </body>
 </html>
