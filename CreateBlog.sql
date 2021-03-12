@@ -32,8 +32,10 @@ CREATE TABLE `comments`(
 `Date` DATE NOT NULL,
 `PostID` INT NOT NULL,
 `UserID` INT NOT NULL,
-CONSTRAINT FK_post_comment FOREIGN KEY(PostID) REFERENCES posts(ID),
+CONSTRAINT FK_post_comment FOREIGN KEY(PostID) REFERENCES posts(ID)
+ON DELETE CASCADE,
 CONSTRAINT FK_user_comment FOREIGN KEY(UserID) REFERENCES users(ID)
+
 );
 
 #Creating 2 test-users: 1.(Username: admin, Password: admin), 2.(Username: user, Password: user). Passwords inserted below are encrypted to match login encryption.
