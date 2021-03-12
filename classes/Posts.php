@@ -16,9 +16,9 @@ class Post
     function __construct($id_IN, $title_IN, $image_IN, $category_IN, $content_IN, $date_IN, $userId_IN, $username_IN)
     {
         $this->id = $id_IN;
-        $this->title = $title_IN;
+        $this->title = escape($title_IN);
         $this->image = $image_IN;
-        $this->category = $category_IN;
+        $this->category = escape($category_IN);
         $this->content = escape($content_IN);
         $this->date = $date_IN;
         $this->userId = $userId_IN;
