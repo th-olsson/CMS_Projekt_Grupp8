@@ -53,10 +53,15 @@ $postId = $_GET['id'];
             $stm->bindParam(":postId_IN", $postId);
             $stm->execute();
 
-            while ($row = $stm->fetch()){?>
+            while ($row = $stm->fetch()){
+                
+                ?>
+                
+
+
                 <article class="comment" id="<?=$row['ID']?>">
                     <aside class="comment__meta"><adress><?=$row['Username']?><time datetime='<?=$row['Date']?>'><?=$row['Date']?></time></adress></aside>
-                    <p class="comment__content"><?=$row['Content']?></p>
+                    <p class="comment__content"><?=escape($row['Content'])?></p>
                 </article>
                 <?php if (isset($_SESSION['is_Login']) && $_SESSION['role'] == 'admin') { //If admin is logged in, add 'delete comment'-btn?>
                 <form action="handleComments.php" method="POST">
@@ -82,6 +87,7 @@ $postId = $_GET['id'];
             <?php } else {  //If logged out, link to login page instead?>
                 <a href="login.php">Log in to comment</a>
             <?php  } ?>
+
     </div>
 </section>
 
