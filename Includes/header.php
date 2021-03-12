@@ -13,7 +13,7 @@
         <?php   } ?>
         <ul class="headerUl">
             <li class="headerLi"><a class=headerLinks href="/CMS_Projekt_Grupp8/index.php">Home</a></li>
-            <li class="headerLi"><a class=headerLinks href="#about">About Millhouse</a></li>
+            <li class="headerLi"><a class=headerLinks href="/CMS_Projekt_Grupp8/views/aboutUs.php">About Millhouse</a></li>
 
 
             <!--Login and register links are not visible to logged in users-->
