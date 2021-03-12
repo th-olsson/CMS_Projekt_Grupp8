@@ -12,8 +12,9 @@ class Post
     private $date;
     private $userId;
     private $username;
+    private $amountComments;
 
-    function __construct($id_IN, $title_IN, $image_IN, $category_IN, $content_IN, $date_IN, $userId_IN, $username_IN)
+    function __construct($id_IN, $title_IN, $image_IN, $category_IN, $content_IN, $date_IN, $userId_IN, $username_IN, $amountComments_IN)
     {
         $this->id = $id_IN;
         $this->title = escape($title_IN);
@@ -23,6 +24,7 @@ class Post
         $this->date = $date_IN;
         $this->userId = $userId_IN;
         $this->username = $username_IN;
+        $this->amountComments = $amountComments_IN;
     }
 
     function createPostHtml()
@@ -36,13 +38,10 @@ class Post
         }
         echo "<p class='post__content'>$this->content</p>";
 
-        //Condition: print links to comments if on index.php, print comments and form to comment if on comments.php
+        //Condition: print links to comments if on index.php
         $fileName = basename($_SERVER['PHP_SELF']); //Gets file name of current page
         if ($fileName == "index.php") {
-
-            echo "<a class='post__comment' href='views/comments.php?id=$this->id'>Comments</a>";
-        } elseif ($fileName == "comments.php") {
-            // Might swap some code from comments.php to here instead
+            echo "<a class='post__comment' href='views/comments.php?id=$this->id'>Comments ($this->amountComments)</a>";
         }
 
         echo "</article>";

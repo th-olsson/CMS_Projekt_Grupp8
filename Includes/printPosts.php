@@ -6,19 +6,19 @@ include("classes/Posts.php");
 if (isset($_GET['category'])){
     $category = ($_GET['category']);
 
-    $stm = $db->prepare("SELECT p.ID, p.Title, p.Image, p.Category, p.Content, p.Date, p.UserId, u.Username FROM posts as p
-    JOIN users as u ON u.Id=p.UserId WHERE p.Category = :category_IN ORDER BY p.ID DESC");
+    $stm = $db->prepare("SELECT p.ID, p.Title, p.Image, p.Category, p.Content, p.Date, p.UserId, u.Username, (SELECT COUNT(*) FROM comments AS c WHERE c.PostId = p.Id) AS AmountComments FROM posts AS p
+    JOIN users AS u ON u.Id=p.UserId WHERE p.Category = :category_IN ORDER BY p.ID DESC");
     $stm->bindParam(':category_IN', $category);
     $stm->execute();
 
 //If no category is selected, print posts from all categories
 } else { 
-    $stm = $db->query("SELECT p.ID, p.Title, p.Image, p.Category, p.Content, p.Date, p.UserId, u.Username FROM posts as p
-    JOIN users as u WHERE u.Id=p.UserId ORDER BY p.ID DESC");
+    $stm = $db->query("SELECT p.ID, p.Title, p.Image, p.Category, p.Content, p.Date, p.UserId, u.Username, (SELECT COUNT(*) FROM comments AS c WHERE c.PostId = p.Id) AS AmountComments FROM posts AS p
+    JOIN users AS u WHERE u.Id=p.UserId ORDER BY p.ID DESC");
 }
 
 while ($row = $stm->fetch()) {
     $i = $row["ID"]; //Index for post-objects
-    $post[$i] = new Post($row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"], $row["Username"]);
+    $post[$i] = new Post($row["ID"], $row["Title"], $row["Image"], $row["Category"], $row["Content"], $row["Date"], $row["UserId"], $row["Username"], $row["AmountComments"]);
     $post[$i]->createPostHtml();
 }
