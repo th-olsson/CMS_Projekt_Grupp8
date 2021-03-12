@@ -269,7 +269,6 @@ body {
 
 	.imgInput {
 		width: 160px;
-        height: 35px;
 	}
 
 	.contentInput {
@@ -306,11 +305,34 @@ body {
 	.comment__content {
 		white-space: pre-wrap;
 	}
+
+	.textarea {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 10px;
+	}
+
+	#contentLabel {
+		padding-top: 10px;
+	}
 	
 @media (max-width: 910px) {
 	.handlePostForm {
 		display: flex;
 		flex-direction: column;
+	}
+	.categoryInput {
+		width: 150px;
+	}
+	.titleInput {
+		width: 150px;
+	}
+
+	.postSubmit {
+		width: 80px;
+	}
+	.postLabels {
+		padding-top: 5px;
 	}
 }
 	
@@ -329,7 +351,11 @@ body {
 	}
 	.post__title {
 		order: 0;
-		padding-bottom: 30px;
+		padding-bottom: 10px;
 		font-size: 20px;
 	}
+	.formValidator {
+		width: 300px;
+	}
+
 }	

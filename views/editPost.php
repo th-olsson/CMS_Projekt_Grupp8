@@ -132,7 +132,7 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
             }
 
             ?>
-            <form action="editPost.php?action=update" method="post" enctype="multipart/form-data">
+            <form class="handlePostForm" action="editPost.php?action=update" method="post" enctype="multipart/form-data">
                 <?php//Readonly inputs may be changed to hidden
                 ?>
                 <input type="hidden" name="ID" value="<?= $_GET['id']; ?>" />
@@ -145,15 +145,15 @@ $date = date('Y-m-d'); //date('Y-m-d') returns current date in yyyy-mm-dd format
                 <input class=" imgInput" type="file" name="imageToReplace"> </input>
                 <label class="postLabels" for="title">Title</label>
                 <input class=" titleInput" type="text" name="title" value="<?= $postData['Title'];    ?>" placeholder="Title of blog post"></input>
-                <br>
-                <label class="postLabels" for="content">Content</label>
-                <br>
+                <div class="textarea">
+                <label id="contentLabel" class="postLabels" for="content">Content</label>
                 <textarea class=" contentInput" name="content" id="" cols="30" rows="10" placeholder="Content of blog post.."><?= $postData['Content']; ?></textarea>
-                <br>
+                </div>
                 <input class="postSubmit" type="submit" value="update" />
             </form>
         </div>
     </main>
+    <?php include("../includes/footer.php"); ?>
 </body>
 
 </html>
