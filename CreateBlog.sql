@@ -41,3 +41,25 @@ INSERT INTO `users` (`Firstname`, `Lastname`, `Username`, `Email`, `Password`, `
 VALUES 
 ('John', 'Doe', 'admin', 'john.doe@millhouse.com', 'a73e518bee4f98f5cd112044a8fa60fa', 'admin'),
 ('Joe', 'Schmoe', 'user', 'joe.schmoe@email.com', 'c9350617c975ea9aebed24958d2f058b', 'user');
+
+#Creating two preexisting posts
+
+INSERT INTO `posts`(`Title`, `Date`, `Image`, `Category`, `UserID`, `Content`)
+VALUES
+("Old Timey Clock", "2021-03-08", "uploads/5568.jpg", "Clocks", 1, "This is an old timey clock we will launch in our new collection in May.
+ It's perfect for giving your home a more rustic feeling.
+
+What are your thoughts?
+Millhouse"),
+("Design your own Wristwatch", "2021-03-11", "uploads/Design your clock.jpg", "Clocks", 1, "We have some exciting news for you for the Spring collection.
+We are launching a feature where you, the customer, will be able to design your own personal wristwatch!
+
+Your will be able to chose components like:
+ -Size
+ -Face
+ -Background
+ -Topp Ring
+ -Bracelet
+
+What are your thoughts on this?
+Millhouse");
