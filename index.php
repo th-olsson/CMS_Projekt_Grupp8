@@ -51,6 +51,11 @@
 
         <!-- Page content -->
         <div class="content">
+             <!--Welcome message to logged in user-->
+            <?php if (isset($_SESSION['username'])) {?>
+
+            <p class="welcome_msg">Welcome <?= $_SESSION['username'] ?>!</p>
+            <?php   } ?>
             <h2 class="content-title">Recent Articles</h2>
             <hr>
 

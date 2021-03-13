@@ -35,7 +35,9 @@ body {
 .headerLinks {
 	text-decoration: none;
 	color: white;
-
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .headerLi {
@@ -203,7 +205,7 @@ body {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		padding-top: 50px;
+		padding-top: 10px;
 	}
 
 	
@@ -264,7 +266,7 @@ body {
 		flex-grow: 3;
 		align-self: flex-start;
 		padding: 5px 0px 10px 2px;
-		font-size: 40px;
+		font-size: 35px;
 	}
 
 	.imgInput {
@@ -299,6 +301,17 @@ body {
 	.h1Header {
 		font-family: 'Dancing Script', cursive;
 		font-size: 50px;
+	}
+
+	.info {
+		align-self: flex-start;
+		font-family: 'Dancing Script', cursive;
+		padding-left: 20px;
+	}
+
+	.title {
+		display: flex;
+		flex-direction: column;
 	}
 
 	/* Comment */
@@ -382,6 +395,22 @@ width:250px;
 		flex-direction: column;
 		padding-bottom: 10px;
 	}
+
+	.slogan {
+		font-family: 'Dancing Script', cursive;
+		padding-left: 20px;
+		font-size: 20px;
+	}
+
+	.welcome_msg {
+		font-size: 40px;
+		color: black;
+		font-family: 'Shippori Mincho B1', serif;
+		align-self: center;
+		padding-bottom: 60px;
+		padding-top: 60px;
+		font-weight: bold;
+	}
 /*End of about us page*/
 
 
@@ -430,5 +459,26 @@ width:250px;
 	.formValidator {
 		width: 300px;
 	}
-
+	.headerLi {
+		text-decoration: underline;
+	}
+	.welcome_msg {
+		font-size: 30px;
+	}
 }	
+
+@media (max-width: 495px) {
+	.info {
+		align-self: flex-start;
+		font-family: 'Dancing Script', cursive;
+		padding-left: 20px;
+		padding-bottom: 20px;
+	}
+	.slogan {
+		font-family: 'Dancing Script', cursive;
+		padding-left: 20px;
+		font-size: 20px;
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+}
