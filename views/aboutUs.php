@@ -8,12 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/style.css?v=<?php echo time(); ?>">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap" rel="stylesheet">
+    <?php include("../includes/headLinks.php"); ?>
     <title>About Us</title>
-
 </head>
 
 <body>
@@ -42,7 +38,7 @@
             </p>
 
         </div>
-        <h2>Words from our customer</h2>
+        <h2>Words from our customers</h2>
         <div class=" quote">
             <blockquote>
                 ⭐⭐⭐⭐⭐
