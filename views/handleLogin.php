@@ -1,15 +1,7 @@
 <?php
-
-include("../includes/database.php");
+include("../includes/database.php"); //database connection
 //function to remove spaces or unwanted character from input data
-function validateData($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
+include("../includes/functions.php");
 
 if (isset($_POST['username_email']) && isset($_POST['password'])) {
     print_r($_POST);

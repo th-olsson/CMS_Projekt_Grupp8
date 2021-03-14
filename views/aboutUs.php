@@ -38,7 +38,7 @@
             </p>
 
         </div>
-        <h2>Words from our customer</h2>
+        <h2>Words from our customers</h2>
         <div class=" quote">
             <blockquote>
                 ⭐⭐⭐⭐⭐
