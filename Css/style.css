@@ -23,13 +23,9 @@ body {
 	padding: 0 15px;
 }
 
-
-.headerUl {
-	font-size: 23px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	font-family: 'Dancing Script';
+.logo_div {
+	font-size: 20px;
+	padding: 7.5px 10px 7.5px 0px;
 }
 
 .headerLinks {
@@ -40,6 +36,36 @@ body {
 	flex-wrap: wrap;
 }
 
+.title {
+	display: flex;
+	flex-direction: column;
+}
+
+.h1Header {
+	font-family: 'Dancing Script', cursive;
+	font-size: 50px;
+}
+
+.info {
+	align-self: flex-start;
+	font-family: 'Dancing Script', cursive;
+	padding-left: 20px;
+}
+
+.slogan {
+	font-family: 'Dancing Script', cursive;
+	padding-left: 20px;
+	font-size: 20px;
+}
+
+.headerUl {
+	font-size: 23px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	font-family: 'Dancing Script';
+}
+
 .headerLi {
 
 	list-style-type: none;
@@ -47,27 +73,140 @@ body {
 	display: block;
 }
 
-.logo_div {
-	font-size: 20px;
-	padding: 7.5px 10px 7.5px 0px;
-}
-
 .headerLi a:hover {
 	color: #ccc;
 }
 
-/*footer styling*/
-.footer {
-	color: white;
-	background-color: #73707D;
-	width: 100%;
-	margin: 20px auto 0px;
-	padding: 20px;
-	position: absolute;
-	bottom: 0;
-	text-align: center;
-  }
+/*page content styling index.php & comments.php*/
+.content {
+	width: 80%;
+	margin: 0px auto;
+	background-color:rgb(224, 215, 202);
+	padding-bottom: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: 'Shippori Mincho B1', serif;
+}
 
+.welcome_msg {
+	font-size: 40px;
+	color: black;
+	font-family: 'Shippori Mincho B1', serif;
+	align-self: center;
+	padding-bottom: 60px;
+	padding-top: 60px;
+	font-weight: bold;
+}
+
+.content-title {
+	flex-grow: 3;
+	align-self: flex-start;
+	padding: 5px 0px 10px 2px;
+	font-size: 35px;
+}
+
+.post {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-top: 10px;
+}
+
+
+.post__title {
+	order: 0;
+	padding-bottom: 30px;
+	font-size: 28px;
+}
+
+.post__meta {
+	order: 3;
+	padding-top: 5px;
+	display: flex;
+	flex-direction: column;
+	font-style: italic;
+	font-size: 12px;
+	padding-bottom: 15px;
+	padding-top: 20px;
+}
+
+.post__img {
+	order: 1;
+	max-width:90%;
+}
+
+.post__content {
+	order: 2;
+	padding-top: 20px;
+	font-size: 16px;
+	white-space: pre-wrap;
+	width:80%;
+}
+
+.post__comment {
+	order: 4;
+	padding-bottom: 10px;
+}
+
+.edit-btn{
+	padding: 4px 12px 4px 12px;	
+	background:grey;
+}
+	
+.delete-btn{
+	padding: 4px;
+	background:red;
+}
+
+.comment__content {
+	white-space: pre-wrap;
+}
+
+/*page content styling post.php & editPost.php*/
+.content2 {
+	width: 80%;
+	padding-bottom: 60px;
+	margin: 0px auto;
+	font-family: 'Shippori Mincho B1', serif;
+}
+
+.postHeader {
+	padding-top: 20px;
+	padding-bottom: 15px;
+}
+
+.postSubmit {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.postSubmit[type=submit]:hover {
+	background-color: #45a049;
+}
+
+  .postClass {
+	padding-bottom: 60px;
+}
+
+  .imgInput {
+	width: 160px;
+}
+
+.contentInput {
+	width: 100%;
+	max-width: 723px;
+	white-space: break-spaces;
+}
+
+#contentLabel {
+	padding-top: 10px;
+}
 
   /* login & register form*/
   .container-form{
@@ -169,155 +308,6 @@ body {
 	  border-radius: 5px;
 	  margin:20px auto;
 	  }
-	
-	.edit-btn{
-	padding: 4px 12px 4px 12px;	
-	background:grey;
-	
-	}
-	
-	.delete-btn{
-	padding: 4px;
-	background:red;
-	
-	}
-	
-/*Post content*/
-	.content {
-		width: 80%;
-		margin: 0px auto;
-		background-color:rgb(224, 215, 202);
-		padding-bottom: 60px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		font-family: 'Shippori Mincho B1', serif;
-}
-
-	.content2 {
-		width: 80%;
-		padding-bottom: 60px;
-		margin: 0px auto;
-		font-family: 'Shippori Mincho B1', serif;
-	}
-	
-	.post {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		padding-top: 10px;
-	}
-
-	
-	.post__title {
-		order: 0;
-		padding-bottom: 30px;
-		font-size: 28px;
-	}
-
-	.post__img {
-		order: 1;
-		max-width:90%;
-	}
-
-	.post__content {
-		order: 2;
-		padding-top: 20px;
-		font-size: 16px;
-		white-space: pre-wrap;
-		width:80%;
-	}
-
-	.post__meta {
-		order: 3;
-		padding-top: 5px;
-		display: flex;
-		flex-direction: column;
-		font-style: italic;
-		font-size: 12px;
-		padding-bottom: 15px;
-		padding-top: 20px;
-	}
-
-	.post__comment {
-		order: 4;
-		padding-bottom: 10px;
-	}
-
-	.btn-div {
-		display: flex;
-	}
-
-	a {
-		color: black;
-
-	}
-
-/* 	.handlePostForm {
-		display: flex;
-		flex-direction: column;
-	}
- */
-	.postClass {
-		padding-bottom: 60px;
-	}
-
-	.content-title {
-		flex-grow: 3;
-		align-self: flex-start;
-		padding: 5px 0px 10px 2px;
-		font-size: 35px;
-	}
-
-	.imgInput {
-		width: 160px;
-	}
-
-	.contentInput {
-		width: 100%;
-		max-width: 723px;
-		white-space: break-spaces;
-	}
-
-	.postSubmit {
-		background-color: #4CAF50;
-		color: white;
-		padding: 14px 20px;
-		margin: 8px 0;
-		border: none;
-		border-radius: 4px;
-		cursor: pointer;
-	}
-
-	.postSubmit[type=submit]:hover {
-		background-color: #45a049;
-	  }
-
-	.postHeader {
-		padding-top: 20px;
-		padding-bottom: 15px;
-	}
-
-	.h1Header {
-		font-family: 'Dancing Script', cursive;
-		font-size: 50px;
-	}
-
-	.info {
-		align-self: flex-start;
-		font-family: 'Dancing Script', cursive;
-		padding-left: 20px;
-	}
-
-	.title {
-		display: flex;
-		flex-direction: column;
-	}
-
-	/* Comment */
-	.comment__content {
-		white-space: pre-wrap;
-	}
 
 	/*About us page*/
 	
@@ -396,27 +386,18 @@ width:250px;
 		padding-bottom: 10px;
 	}
 
-	.slogan {
-		font-family: 'Dancing Script', cursive;
-		padding-left: 20px;
-		font-size: 20px;
-	}
+/*footer styling*/
+.footer {
+	color: white;
+	background-color: #73707D;
+	width: 100%;
+	margin: 20px auto 0px;
+	padding: 20px;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+  }
 
-	.welcome_msg {
-		font-size: 40px;
-		color: black;
-		font-family: 'Shippori Mincho B1', serif;
-		align-self: center;
-		padding-bottom: 60px;
-		padding-top: 60px;
-		font-weight: bold;
-	}
-/*End of about us page*/
-
-
-	#contentLabel {
-		padding-top: 10px;
-	}
 	
 @media (max-width: 910px) {
 	.handlePostForm {
