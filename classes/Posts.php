@@ -32,7 +32,7 @@ class Post
 
         echo "<article class='post' id='$this->id'>";
         echo "<h3 class='post__title'>$this->title</h3>";
-        echo "<aside class='post__meta'><adress>By $this->username</adress><time datetime='$this->date'>$this->date</time><a href='/CMS_Projekt_Grupp8/index.php?category=$this->category'>$this->category</a></aside>";
+        echo "<aside class='post__meta'><adress>By $this->username</adress><time datetime='$this->date'>$this->date</time><a class='post__category' href='/CMS_Projekt_Grupp8/index.php?category=$this->category'>$this->category</a></aside>";
         if (isset($this->image)){
             echo "<img class='post__img'src='/CMS_Projekt_Grupp8/views/$this->image' alt='Blog post image' />";
         }
