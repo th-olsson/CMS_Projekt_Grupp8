@@ -144,6 +144,7 @@ body {
 .post__comment {
 	order: 4;
 	padding-bottom: 10px;
+	
 }
 
 .edit-btn{
@@ -403,7 +404,11 @@ body {
 		padding-top: 5px;
 	}
 }
-	
+
+.post__category:visited, .post__comment:visited{
+	color: black;
+}
+
 @media (max-width: 650px) {
 	.headerUl {
 		font-size: 23px;

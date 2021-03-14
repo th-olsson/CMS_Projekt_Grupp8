@@ -3,7 +3,7 @@
         <a class=headerLinks href="/CMS_Projekt_Grupp8/index.php">
             <div class="title">
                 <h1 class="h1Header">Millhouse</h1>
-                <p class="info">"The blogg"</p>
+                <p class="info">Blog site</p>
             </div>    
             <p class="slogan">"Where shopping meets destination"</p>
         </a>
